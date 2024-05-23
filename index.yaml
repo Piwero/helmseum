@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  test-1:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-05-23T05:53:54.693190134Z"
+    description: A Helm chart for Kubernetes
+    digest: b79e3b0c038e82ad8d10f4f11cb223fe563ce0e857ff11b8231ef0927d49b9b6
+    name: test-1
+    type: application
+    urls:
+    - https://github.com/Piwero/helmseum/releases/download/test-1-0.1.0/test-1-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-05-23T05:53:54.693194592Z"
