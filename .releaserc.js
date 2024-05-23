@@ -9,7 +9,7 @@ module.exports = {
         [
             "@semantic-release/changelog",
             {
-                "changelogFile": "charts/test-1/CHANGELOG.md"
+                "changelogFile": "charts/CHANGELOG.md"
             }
         ],
         [
