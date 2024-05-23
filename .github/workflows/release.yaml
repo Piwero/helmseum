@@ -26,9 +26,20 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v4
         env:
-            GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Semantic Release
+        id: semantic-release
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          semantic_version: 19.0.5
+          branch: main
+          extra_plugins: |
+            semantic-release-helm3@2.9.3
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
         env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
