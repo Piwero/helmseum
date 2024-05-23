@@ -1,0 +1,5 @@
+.idea/
+### Helm template
+# Chart dependencies
+**/charts/*.tgz
+
