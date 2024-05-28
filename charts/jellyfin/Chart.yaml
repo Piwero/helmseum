@@ -1,0 +1,10 @@
+apiVersion: v2
+name: jellyfin
+description: A Helm chart for jellyfin deployment
+type: application
+version: 0.1.4
+appVersion: "1.16.0"
+dependencies:
+  - name: piwhelm
+    version: "0.3.2"
+    repository: "https://raw.githubusercontent.com/Piwero/piwhelm/gh-pages"
