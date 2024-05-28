@@ -3,8 +3,9 @@
 
 name: Lint markdowns
 on:
-  pull_request:
-    branches: [ 'master', 'main' ]
+  push:
+    branches:
+      - main
     paths:
       - '**.md'
 # Remove all permissions by default

@@ -1,9 +1,8 @@
 name: Lint Helm Charts
 on:
-  pull_request:
+  push:
     branches:
       - main
-
 jobs:
   lint-helm-charts:
     runs-on: ubuntu-latest
