@@ -2,7 +2,7 @@ name: Release Charts
 
 on:
   workflow_run:
-    workflows: [lint-helm-charts]
+    workflows: [Lint Helm Charts]
     branches: [main]
     types:
       - completed
