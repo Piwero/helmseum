@@ -1,0 +1,28 @@
+name: Lint Helm Charts
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-helm-charts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.12.1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          check-latest: true
+      - name: Run Helm lint
+        id: lint-helm
+        run: |
+          for dir in charts/*; do
+            helm lint $dir
+          done
