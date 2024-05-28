@@ -76,7 +76,7 @@ jobs:
             pushd "$dir";
 
             cp -f ../../.github/cr.yaml ./
-            cp -f ../../.releaserc.js ./
+            cp -f ../../release.config.cjs ./
             ln -s ../../.cr-release-packages
 
             export CHART_NAME=$(basename $(pwd))
