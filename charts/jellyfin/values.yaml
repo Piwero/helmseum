@@ -1,0 +1,118 @@
+# Default values for piwhelm.
+global:
+  jellyfin: # to be replaced with chart name
+    configMap: # ConfigMap configuration section (optional)
+      name: jellyfin-configmap
+      enabled: true
+
+    secrets: # Secrets configuration section
+    deployment: # Deployment configuration section
+      enabled: true
+      name: jellyfin
+      apiVersion: apps/v1
+      replicas: 1
+      nodeSelector: # Node selector for deployment
+        device: laptop
+      containers: # Containers configuration section
+        - name: jellyfin
+          enabled: true
+          image: ghcr.io/linuxserver/jellyfin
+          imagePullPolicy: ""
+          envFrom: # Environment variables from ConfigMap (optional)
+            - configMapRef:
+                name: jellyfin-configmap
+          ports: # Container ports (optional)
+            - name: http
+              containerPort: 8096
+              protocol: TCP # Protocol (optional)
+            - name: https
+              containerPort: 8920
+              protocol: TCP # Protocol (optional)
+            - name: dlna
+              containerPort: 1900
+              protocol: UDP # Protocol (optional)
+            - name: discovery
+              containerPort: 7359
+              protocol: UDP # Protocol (optional)
+
+          volumeMounts: # Volume mounts (optional)
+            - name: nfs-jellyfin-config
+              mountPath: /config
+            - name: nfs-jellyfin-data
+              mountPath: /data
+
+      volumes: # Volumes for deployment (optional)
+        - name: log-volume
+          emptyDir: true # Create an emptyDir volume
+        - name: nfs-jellyfin-config
+          persistentVolumeClaim: pvc-config-jellyfin
+        - name: nfs-jellyfin-data
+          persistentVolumeClaim: pvc-data-jellyfin
+
+    services: # Kubernetes services configuration section (optional)
+      - name: jellyfin-service
+        enabled: true
+        type: ClusterIP
+        ports: # Service ports
+          - name: http
+            protocol: TCP
+            port: 80
+            targetPort: 8096
+
+    pvs: # PersistentVolumes configuration section (optional)
+      - name: nfs-jellyfin-config
+        enabled: true
+        capacity:
+          storage: 1Gi
+        accessModes: [ReadWriteMany]
+        persistentVolumeReclaimPolicy: Retain
+        nfs:
+          path: ${JELLYFIN_CONFIG_PATH}
+          server: ${NAS_IP}
+          readOnly: false
+      - name: nfs-jellyfin-data
+        enabled: true
+        capacity:
+          storage: 1Ti
+        accessModes: [ReadWriteMany]
+        persistentVolumeReclaimPolicy: Retain
+        nfs:
+          path: ${JELLYFIN_DATA_PATH}
+          server: ${NAS_IP}
+          readOnly: false
+
+    pvcs: # PersistentVolumeClaims configuration section (optional)
+    - name: pvc-config-jellyfin
+      enabled: true
+      storageClassName: ""
+      volumeName: nfs-jellyfin-config
+      accessModes: [ReadWriteMany]
+      volumeMode: Filesystem
+      storage: 1Gi
+    - name: pvc-data-jellyfin
+      enabled: true
+      storageClassName: ""
+      volumeName: nfs-jellyfin-data
+      accessModes: [ReadWriteMany]
+      volumeMode: Filesystem
+      storage: 1Ti
+
+    ingressroutes: # Ingress routes configuration section (optional)
+      - name: ""
+        apiVersion: traefik.io/v1alpha1
+        enabled: true
+        serviceName: ""
+        entryPoints:
+          - web
+          - websecure
+        routes:
+          - match: Host(`${JELLYFIN_HOST}`)
+            enabled: true
+            kind: Rule
+            middlewares: [ ]
+            services:
+              - kind: Service
+                enabled: true
+                name: jellyfin-service
+                namespace: ""
+                port: 8096
