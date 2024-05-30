@@ -1,2 +1,2 @@
-{{ include  "piwhelm.manifest.services" . }}
+{{ include  "jellyfin.manifest.services" . }}
 

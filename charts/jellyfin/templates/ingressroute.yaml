@@ -1,2 +1,2 @@
-{{ include  "piwhelm.manifest.ingressroutes" . }}
+{{ include  "jellyfin.manifest.ingressroutes" . }}
 

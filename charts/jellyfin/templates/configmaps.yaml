@@ -1,1 +1,1 @@
-{{- include "piwhelm.manifest.configmaps" . }}
+{{- include "jellyfin.manifest.configmaps" . }}

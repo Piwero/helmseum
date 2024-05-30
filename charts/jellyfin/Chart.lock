@@ -1,6 +1,0 @@
-dependencies:
-- name: piwhelm
-  repository: https://raw.githubusercontent.com/Piwero/piwhelm/gh-pages
-  version: 0.3.2
-digest: sha256:d973693eba55d03477583e821a98bb0b078bc9b053f2158a833635b707800f17
-generated: "2024-05-12T09:10:14.420361886Z"

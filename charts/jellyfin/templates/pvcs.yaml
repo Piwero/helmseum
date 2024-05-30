@@ -1,1 +1,1 @@
-{{ include  "piwhelm.manifest.pvcs" . }}
+{{ include  "jellyfin.manifest.pvcs" . }}

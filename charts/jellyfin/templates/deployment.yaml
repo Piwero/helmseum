@@ -1,2 +1,2 @@
-{{ include  "piwhelm.manifest.deployment" . }}
+{{ include  "jellyfin.manifest.deployment" . }}
 

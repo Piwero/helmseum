@@ -1,4 +1,4 @@
-# Default values for piwhelm.
+# Default values for jellyfin.
 global:
   jellyfin: # to be replaced with chart name
     configMap: # ConfigMap configuration section (optional)
