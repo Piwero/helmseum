@@ -3,6 +3,16 @@ entries:
   app-2:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-05-31T07:59:03.388702133Z"
+    description: A Helm chart for Kubernetes
+    digest: 790cf4b78644a4b467cd10673bf730c2248aa13bd320a4346d1c0b0f150847c5
+    name: app-2
+    type: application
+    urls:
+    - https://github.com/Piwero/helmseum/releases/download/app-2-0.0.3/app-2-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-05-31T07:40:29.378363718Z"
     description: A Helm chart for Kubernetes
     digest: 9d3ecb35e40be2a56227cc90a72a2ee21784dd95bd5e0a454f5e77335b4f66fb
@@ -47,6 +57,16 @@ entries:
     - https://github.com/Piwero/helmseum/releases/download/jellyfin-0.1.5/jellyfin-0.1.5.tgz
     version: 0.1.5
   test-1:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-05-31T07:59:03.550560036Z"
+    description: A Helm chart for Kubernetes
+    digest: 43daf873a6e92702508060791b6eac1fc4619890c00618373f6f050a7c72aecd
+    name: test-1
+    type: application
+    urls:
+    - https://github.com/Piwero/helmseum/releases/download/test-1-2.0.10/test-1-2.0.10.tgz
+    version: 2.0.10
   - apiVersion: v2
     appVersion: 0.0.1
     created: "2024-05-31T07:40:29.505720888Z"
@@ -207,4 +227,4 @@ entries:
     urls:
     - https://github.com/Piwero/helmseum/releases/download/test-1-0.0.1/test-1-0.0.1.tgz
     version: 0.0.1
-generated: "2024-05-31T07:40:29.50585536Z"
+generated: "2024-05-31T07:59:03.550685401Z"
