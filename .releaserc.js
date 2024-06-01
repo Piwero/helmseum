@@ -15,7 +15,7 @@ module.exports = {
         [
             'semantic-release-helm3',
             {
-                chartPath: 'charts',
+                chartPath: 'charts/jellyfin',
                 onlyUpdateVersion: true,
             }
         ]
