@@ -10,6 +10,7 @@ module.exports = {
             {
                 "changelogFile": "CHANGELOG.md"
             }
-        ]
+        ],
+        'semantic-release-helm3',
     ]
 }
