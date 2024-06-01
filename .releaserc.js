@@ -1,3 +1,4 @@
+
 module.exports = {
     "branches": [
         "main"
@@ -11,6 +12,12 @@ module.exports = {
                 "changelogFile": "CHANGELOG.md"
             }
         ],
-        'semantic-release-helm3',
+        [
+            'semantic-release-helm3',
+            {
+                chartPath: 'charts/test-1',
+                onlyUpdateVersion: true,
+            }
+        ]
     ]
 }
