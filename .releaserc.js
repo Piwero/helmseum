@@ -15,7 +15,7 @@ module.exports = {
         [
             'semantic-release-helm3',
             {
-                chartPath: 'charts/test-1',
+                chartPath: 'charts',
                 onlyUpdateVersion: true,
             }
         ]
