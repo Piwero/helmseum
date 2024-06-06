@@ -16,7 +16,7 @@ module.exports = {
             "@semantic-release/exec",
             {
                 "prepareCmd": "helm-docs",
-                "publishCmd": "cr package . && cr upload -o piwero -r sandbox-github-actions -c $(git rev-parse HEAD) --release-notes-file CHANGELOG.md --push --packages-with-index --skip-existing"
+                "publishCmd": "cr package . && cr upload -o $(GITHUB_REPOSITORY_OWNER) -r $(GITHUB_REPOSITORY) -c $(git rev-parse HEAD) --release-notes-file CHANGELOG.md --push --packages-with-index --skip-existing"
             }
         ],
         [
