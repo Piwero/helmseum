@@ -2,4 +2,4 @@
 ### Helm template
 # Chart dependencies
 **/charts/*.tgz
-
+node_modules/
