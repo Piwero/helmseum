@@ -11,10 +11,18 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     # depending on default permission settings for your org (contents being read-only or read-write for workloads), you will have to add permissions
     # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
+
     permissions:
       contents: write
     runs-on: ubuntu-latest
     steps:
+      - name: Load secrets from 1pass
+        uses: 1password/load-secrets-action/configure@v1
+        with:
+          service-account-token: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          GITHUB_REPOSITORY_OWNER: "op://Homelab/Github Actions -Helmseum/username"
+          GITHUB_REPOSITORY: "op://Homelab/Github Actions -Helmseum/repo"
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
