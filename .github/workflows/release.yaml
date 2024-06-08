@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Load secrets from 1pass
-        uses: 1password/load-secrets-action/configure@v1
+        uses: 1password/load-secrets-action/configure@v2
         with:
           service-account-token: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
           GITHUB_REPOSITORY_OWNER: "op://Homelab/Github Actions -Helmseum/username"
