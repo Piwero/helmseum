@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/Piwero/helmseum/compare/test-1-v1.0.3...test-1-v1.0.4) (2024-06-08)
+
+
+### Bug Fixes
+
+* **test-1:** Trigger minor releaser ([271e58a](https://github.com/Piwero/helmseum/commit/271e58a9e47d5001dcaa60dcbcf6e0b8245cb85a))
+
 ## [1.0.3](https://github.com/Piwero/helmseum/compare/test-1-v1.0.2...test-1-v1.0.3) (2024-06-08)
 
 
