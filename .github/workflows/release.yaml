@@ -16,17 +16,26 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
-      - name: Load secrets from 1pass
-        uses: 1password/load-secrets-action/configure@v1
-        with:
-          service-account-token: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          GITHUB_REPOSITORY_OWNER: "op://Homelab/Github Actions -Helmseum/username"
-          GITHUB_REPOSITORY: "op://Homelab/Github Actions -Helmseum/repo"
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Load secrets from 1pass
+        uses: 1password/load-secrets-action@v2
+        with:
+          # Export loaded secrets as environment variables
+          export-env: true
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          REPOSITORY_OWNER: "op://Homelab/Github Actions -Helmseum/username"
+          GITHUB_REPOSITORY: "op://Homelab/Github Actions -Helmseum/repo"
+
+      - name: Print masked secret
+        run: |
+          echo "REPOSITORY_OWNER: $REPOSITORY_OWNER"
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+        
 
       - uses: actions/setup-node@v4
         with:
