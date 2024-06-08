@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Piwero/helmseum/compare/test-1-v1.0.2...test-1-v1.0.3) (2024-06-08)
+
+
+### Reverts
+
+* Revert "fix(test-1): Trigger minor releaser" ([bbff432](https://github.com/Piwero/helmseum/commit/bbff4325b5cd25c5b360523fc8664681c76388d0))
+
 ## [1.0.2](https://github.com/Piwero/helmseum/compare/test-1-v1.0.1...test-1-v1.0.2) (2024-06-08)
 
 
