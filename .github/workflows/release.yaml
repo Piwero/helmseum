@@ -35,6 +35,7 @@ jobs:
         run: |
           echo "REPOSITORY_OWNER=$REPOSITORY_OWNER" >> $GITHUB_ENV
           echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> $GITHUB_ENV
+          echo REPO_NAME=${GITHUB_REPOSITORY#*/} >> $GITHUB_ENV
 
       - name: Print masked secret
         run: |
@@ -105,8 +106,4 @@ jobs:
           done
           
           echo "CR Index"
-          echo "REPOSITORY_OWNER: $REPOSITORY_OWNER"
-          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
-          REPO_NAME=${GITHUB_REPOSITORY#*/}
-          echo $REPO_NAME
           [ "$(ls -A .cr-release-packages)" ] && cr index -o "$(REPOSITORY_OWNER)" -r $REPO_NAME --push --packages-with-index --index-path .
