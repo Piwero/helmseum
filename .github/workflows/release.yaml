@@ -31,6 +31,11 @@ jobs:
           REPOSITORY_OWNER: "op://Homelab/Github Actions -Helmseum/username"
           GITHUB_REPOSITORY: "op://Homelab/Github Actions -Helmseum/repo"
 
+      - name: Export environment variables
+        run: |
+          echo "REPOSITORY_OWNER=$REPOSITORY_OWNER" >> $GITHUB_ENV
+          echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> $GITHUB_ENV
+
       - name: Print masked secret
         run: |
           echo "REPOSITORY_OWNER: $REPOSITORY_OWNER"
