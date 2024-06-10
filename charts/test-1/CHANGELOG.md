@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/Piwero/helmseum/compare/test-1-v1.0.5...test-1-v1.0.6) (2024-06-10)
+
+
+### Bug Fixes
+
+* **test-1:** Release small version ([2f29d0d](https://github.com/Piwero/helmseum/commit/2f29d0d557c7baab95accd5fe5cb91b36e7fabdf))
+
 ## [1.0.5](https://github.com/Piwero/helmseum/compare/test-1-v1.0.4...test-1-v1.0.5) (2024-06-08)
 
 
