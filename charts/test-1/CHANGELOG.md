@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/Piwero/helmseum/compare/test-1-v1.1.0...test-1-v1.2.0) (2024-06-11)
+
+
+### Bug Fixes
+
+* **jellyfin:** Add files to .helmignore ([077d213](https://github.com/Piwero/helmseum/commit/077d2130a3db12af1868fc8a83bda0b33a4ae290))
+* **test-1:** Release small version ([c0b5de5](https://github.com/Piwero/helmseum/commit/c0b5de59365910f900b82e773f270d087948f6cd))
+
+
+### Features
+
+* **app-2:** Major release ([e128342](https://github.com/Piwero/helmseum/commit/e1283422793847b5989b62a03559ae51517ef785))
+
 # [1.1.0](https://github.com/Piwero/helmseum/compare/test-1-v1.0.11...test-1-v1.1.0) (2024-06-11)
 
 
