@@ -1,5 +1,32 @@
 apiVersion: v1
 entries:
+  app-2:
+  - annotations:
+      artifacthub.io/changes: |+
+        # [1.2.0](https://github.com/Piwero/helmseum/compare/app-2-v1.1.1...app-2-v1.2.0) (2024-06-11)
+
+
+        ### Bug Fixes
+
+        * **test-1:** Small release trigger ([49d6613](https://github.com/Piwero/helmseum/commit/49d661372d017b502ba9d56aad97232043267417))
+
+
+        ### Features
+
+        * **app-2:** Major release ([e128342](https://github.com/Piwero/helmseum/commit/e1283422793847b5989b62a03559ae51517ef785))
+
+
+
+    apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-06-11T20:50:18.896738405Z"
+    description: A Helm chart for Kubernetes
+    digest: 53d13f08bd062512b25fb22e6ee327e7f3b174d7eb73498aac8c8ab612f0c6f3
+    name: app-2
+    type: application
+    urls:
+    - app-2-1.2.0.tgz
+    version: 1.2.0
   test-1:
   - annotations:
       artifacthub.io/changes: |+
@@ -28,4 +55,4 @@ entries:
     urls:
     - test-1-1.1.0.tgz
     version: 1.1.0
-generated: "2024-06-11T20:44:09.546052918Z"
+generated: "2024-06-11T20:50:18.896747391Z"
