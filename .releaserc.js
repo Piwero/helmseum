@@ -23,7 +23,6 @@ module.exports = {
             "semantic-release-helm3",
             {
                 "chartPath": ".",
-                "populateChangelog": "true",
                 "onlyUpdateVersion": "true"
             }
         ],
