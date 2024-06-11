@@ -1,7 +1,5 @@
 {{- define "jellyfin.manifest.pvcs" }}
-{{ $dict := (get .Values.global .Chart.Name) }}
-{{- if hasKey $dict "pvcs" }}
-{{- range $dict.pvcs }}
+{{ range .Values.global.jellyfin.pvcs }}
 {{- if .enabled -}}
 ---
 apiVersion: v1
@@ -18,6 +16,5 @@ spec:
     requests:
         storage: {{ .storage }}
 {{- end }}
-{{- end }}
-{{- end }}
+{{ end }}
 {{- end }}

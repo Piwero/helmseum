@@ -1,7 +1,5 @@
 {{- define "jellyfin.manifest.pvs" }}
-{{ $dict := (get .Values.global .Chart.Name) }}
-{{- if hasKey $dict "pvs" }}
-{{- range $dict.pvs }}
+{{ range .Values.global.jellyfin.pvs }}
 {{- if .enabled -}}
 ---
 apiVersion: v1
@@ -12,7 +10,7 @@ metadata:
 spec:
 {{- if .storageClassName }}
   storageClassName: {{ .storageClassName | default "" }}{{- end }}
-  {{- end }}
+{{- end }}
   capacity:
     storage: {{ .capacity.storage }}
   accessModes: {{ .accessModes | default "[]" }}
@@ -21,6 +19,5 @@ spec:
     path: {{ .nfs.path}}
     server: {{ .nfs.server}}
     readOnly: {{ .nfs.readOnly }}
-{{- end }}
-{{- end }}
+{{ end }}
 {{- end }}
