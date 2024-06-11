@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Piwero/helmseum/compare/jellyfin-v1.2.0...jellyfin-v1.2.1) (2024-06-11)
+
+
+### Bug Fixes
+
+* **jellyfin:** Change url for helmseum ([23ae09d](https://github.com/Piwero/helmseum/commit/23ae09d5baef39b8d6206e1e1121516d47f33274))
+
 # [1.2.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.1.1...jellyfin-v1.2.0) (2024-06-11)
 
 
