@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Piwero/helmseum/compare/app-2-v1.3.0...app-2-v1.3.1) (2024-06-11)
+
+
+### Bug Fixes
+
+* **jellyfin:** Change url for helmseum ([23ae09d](https://github.com/Piwero/helmseum/commit/23ae09d5baef39b8d6206e1e1121516d47f33274))
+
 # [1.3.0](https://github.com/Piwero/helmseum/compare/app-2-v1.2.2...app-2-v1.3.0) (2024-06-11)
 
 
