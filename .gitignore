@@ -3,3 +3,4 @@
 # Chart dependencies
 **/charts/*.tgz
 node_modules/
+*.env
