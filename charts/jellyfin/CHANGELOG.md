@@ -1,3 +1,13 @@
+## [1.1.1](https://github.com/Piwero/helmseum/compare/jellyfin-v1.1.0...jellyfin-v1.1.1) (2024-06-11)
+
+
+### Bug Fixes
+
+* **app-2:** Small release ([77ee219](https://github.com/Piwero/helmseum/commit/77ee219e39679d7b06817677fb8493070aa4568e))
+* **app-2:** Small release ([b70e856](https://github.com/Piwero/helmseum/commit/b70e85688a16cb912a8ae075d60d40910aebf7ed))
+* **jellyfin:** Remove comment to trigger patch release ([8203aae](https://github.com/Piwero/helmseum/commit/8203aae37f3fda0939ace1c6bfefd55c7e67e705))
+* **test-1:** Release small version ([c0b5de5](https://github.com/Piwero/helmseum/commit/c0b5de59365910f900b82e773f270d087948f6cd))
+
 # [1.1.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.0.0...jellyfin-v1.1.0) (2024-06-11)
 
 
