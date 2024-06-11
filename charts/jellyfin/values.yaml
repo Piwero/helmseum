@@ -1,6 +1,6 @@
 # Default values for jellyfin.
 global:
-  jellyfin: # to be replaced with chart name
+  jellyfin:
     configMap: # ConfigMap configuration section (optional)
       name: jellyfin-configmap
       enabled: true
