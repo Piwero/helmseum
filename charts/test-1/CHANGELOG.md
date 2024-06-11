@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/Piwero/helmseum/compare/test-1-v1.0.11...test-1-v1.1.0) (2024-06-11)
+
+
+### Bug Fixes
+
+* **jellyfin:** Bump version ([eb9257c](https://github.com/Piwero/helmseum/commit/eb9257cbd26a3745c8db9d6efa711b818864a9f7))
+* **test-1:** Small release trigger ([49d6613](https://github.com/Piwero/helmseum/commit/49d661372d017b502ba9d56aad97232043267417))
+
+
+### Features
+
+* **jellyfin:** Allow to inject values with 1pass and kustomize ([83b1bb8](https://github.com/Piwero/helmseum/commit/83b1bb84c9e3a6429f8686dec23b8e62597aa8f3))
+
 ## [1.0.11](https://github.com/Piwero/helmseum/compare/test-1-v1.0.10...test-1-v1.0.11) (2024-06-11)
 
 
