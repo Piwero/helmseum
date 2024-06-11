@@ -1,6 +1,16 @@
 apiVersion: v1
 entries:
   app-2:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-06-11T21:35:09.667517311Z"
+    description: A Helm chart for Kubernetes
+    digest: 3190b38f6a0553ed8628dcefbb703268b9192e592fd129365820e08fa1a44444
+    name: app-2
+    type: application
+    urls:
+    - app-2-1.2.1.tgz
+    version: 1.2.1
   - annotations:
       artifacthub.io/changes: |+
         # [1.2.0](https://github.com/Piwero/helmseum/compare/app-2-v1.1.1...app-2-v1.2.0) (2024-06-11)
@@ -99,4 +109,4 @@ entries:
     urls:
     - test-1-1.1.0.tgz
     version: 1.1.0
-generated: "2024-06-11T21:30:06.026337897Z"
+generated: "2024-06-11T21:35:09.667524444Z"
