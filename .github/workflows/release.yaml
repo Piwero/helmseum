@@ -106,4 +106,4 @@ jobs:
           done
           
           echo "CR Index"
-          [ "$(ls -A .cr-release-packages)" ] && cr index -o "$(REPOSITORY_OWNER)" -r $REPO_NAME --push --packages-with-index --index-path .
+          [ "$(ls -A .cr-release-packages)" ] && cr index -o "$(REPOSITORY_OWNER)" -r "$(REPO_NAME)" --push --packages-with-index --index-path .
