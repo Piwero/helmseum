@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/Piwero/helmseum/compare/test-1-v1.0.10...test-1-v1.0.11) (2024-06-11)
+
+
+### Reverts
+
+* Revert "fix(test-1): Release small version" ([6229e18](https://github.com/Piwero/helmseum/commit/6229e18199c63bcbe5f64c557f98b1f5ebc36ab4))
+
 ## [1.0.10](https://github.com/Piwero/helmseum/compare/test-1-v1.0.9...test-1-v1.0.10) (2024-06-11)
 
 
