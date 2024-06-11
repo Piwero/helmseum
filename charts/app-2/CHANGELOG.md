@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/Piwero/helmseum/compare/app-2-v1.0.0...app-2-v1.1.0) (2024-06-11)
+
+
+### Features
+
+* **jellyfin:** Allow to inject values with 1pass and kustomize ([83b1bb8](https://github.com/Piwero/helmseum/commit/83b1bb84c9e3a6429f8686dec23b8e62597aa8f3))
+
+
+### Reverts
+
+* Revert "fix(app-2): Release small version" ([8381ce9](https://github.com/Piwero/helmseum/commit/8381ce95e88e623f3cfc6cb75f2044135009b020))
+
 # 1.0.0 (2024-06-11)
 
 
