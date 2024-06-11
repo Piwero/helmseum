@@ -1,3 +1,22 @@
+# [1.1.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.0.0...jellyfin-v1.1.0) (2024-06-11)
+
+
+### Bug Fixes
+
+* **jellyfin:** Add files to .helmignore ([077d213](https://github.com/Piwero/helmseum/commit/077d2130a3db12af1868fc8a83bda0b33a4ae290))
+* **jellyfin:** Bump version ([eb9257c](https://github.com/Piwero/helmseum/commit/eb9257cbd26a3745c8db9d6efa711b818864a9f7))
+* **test-1:** Small release trigger ([49d6613](https://github.com/Piwero/helmseum/commit/49d661372d017b502ba9d56aad97232043267417))
+
+
+### Features
+
+* **app-2:** Major release ([e128342](https://github.com/Piwero/helmseum/commit/e1283422793847b5989b62a03559ae51517ef785))
+
+
+### Reverts
+
+* Revert "fix(app-2): Release small version" ([8381ce9](https://github.com/Piwero/helmseum/commit/8381ce95e88e623f3cfc6cb75f2044135009b020))
+
 # 1.0.0 (2024-06-11)
 
 
