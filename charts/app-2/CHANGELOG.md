@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/Piwero/helmseum/compare/app-2-v1.2.2...app-2-v1.3.0) (2024-06-11)
+
+
+### Bug Fixes
+
+* **jellyfin:** Remove comment to trigger patch release ([8203aae](https://github.com/Piwero/helmseum/commit/8203aae37f3fda0939ace1c6bfefd55c7e67e705))
+
+
+### Features
+
+* **jellyfin:** Add kustomization example ([fa286a1](https://github.com/Piwero/helmseum/commit/fa286a1db2b536b0337fc5d46e9a47f37d975dd3))
+
 ## [1.2.2](https://github.com/Piwero/helmseum/compare/app-2-v1.2.1...app-2-v1.2.2) (2024-06-11)
 
 
