@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/Piwero/helmseum/compare/app-2-v1.2.1...app-2-v1.2.2) (2024-06-11)
+
+
+### Bug Fixes
+
+* **app-2:** Small release ([77ee219](https://github.com/Piwero/helmseum/commit/77ee219e39679d7b06817677fb8493070aa4568e))
+
 ## [1.2.1](https://github.com/Piwero/helmseum/compare/app-2-v1.2.0...app-2-v1.2.1) (2024-06-11)
 
 
