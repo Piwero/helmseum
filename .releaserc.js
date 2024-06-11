@@ -27,12 +27,12 @@ module.exports = {
                 "onlyUpdateVersion": "true"
             }
         ],
-
         "@semantic-release/git",
         {
             "assets": [
-                "Chart.yaml",
+                "Chart.yaml"
             ],
             "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-        }]
+        }
+    ]
 }
