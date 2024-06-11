@@ -3,6 +3,27 @@ entries:
   app-2:
   - annotations:
       artifacthub.io/changes: |+
+        ## [1.1.1](https://github.com/Piwero/helmseum/compare/app-2-v1.1.0...app-2-v1.1.1) (2024-06-11)
+
+
+        ### Bug Fixes
+
+        * **jellyfin:** Bump version ([eb9257c](https://github.com/Piwero/helmseum/commit/eb9257cbd26a3745c8db9d6efa711b818864a9f7))
+
+
+
+    apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-06-11T17:11:40.794504383Z"
+    description: A Helm chart for Kubernetes
+    digest: 667db9b7e323294b6a74ee87ad2bb273ba1e6e17c0dc83af43659701deec7555
+    name: app-2
+    type: application
+    urls:
+    - app-2-1.1.1.tgz
+    version: 1.1.1
+  - annotations:
+      artifacthub.io/changes: |+
         # [1.1.0](https://github.com/Piwero/helmseum/compare/app-2-v1.0.0...app-2-v1.1.0) (2024-06-11)
 
 
@@ -343,4 +364,4 @@ entries:
     urls:
     - https://github.com/Piwero/helmseum/releases/download/test-1-0.0.1/test-1-0.0.1.tgz
     version: 0.0.1
-generated: "2024-06-11T17:08:56.768651866Z"
+generated: "2024-06-11T17:11:40.794595814Z"
