@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Piwero/helmseum/compare/app-2-v1.1.0...app-2-v1.1.1) (2024-06-11)
+
+
+### Bug Fixes
+
+* **jellyfin:** Bump version ([eb9257c](https://github.com/Piwero/helmseum/commit/eb9257cbd26a3745c8db9d6efa711b818864a9f7))
+
 # [1.1.0](https://github.com/Piwero/helmseum/compare/app-2-v1.0.0...app-2-v1.1.0) (2024-06-11)
 
 
