@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.1.1...jellyfin-v1.2.0) (2024-06-11)
+
+
+### Features
+
+* **jellyfin:** Add kustomization example ([fa286a1](https://github.com/Piwero/helmseum/commit/fa286a1db2b536b0337fc5d46e9a47f37d975dd3))
+
 ## [1.1.1](https://github.com/Piwero/helmseum/compare/jellyfin-v1.1.0...jellyfin-v1.1.1) (2024-06-11)
 
 
