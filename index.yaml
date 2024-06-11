@@ -62,6 +62,16 @@ entries:
     - jellyfin-1.1.0.tgz
     version: 1.1.0
   test-1:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-06-11T21:30:06.026325605Z"
+    description: A Helm chart for Kubernetes
+    digest: 0fa344aad9e7fadb085d7d66f1d4dbe1fac0bcd3d48e0ab232057a7a3b3acd31
+    name: test-1
+    type: application
+    urls:
+    - test-1-1.2.0.tgz
+    version: 1.2.0
   - annotations:
       artifacthub.io/changes: |+
         # [1.1.0](https://github.com/Piwero/helmseum/compare/test-1-v1.0.11...test-1-v1.1.0) (2024-06-11)
@@ -89,4 +99,4 @@ entries:
     urls:
     - test-1-1.1.0.tgz
     version: 1.1.0
-generated: "2024-06-11T21:00:24.974193415Z"
+generated: "2024-06-11T21:30:06.026337897Z"
