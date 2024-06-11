@@ -6,6 +6,6 @@ kind: Kustomization
 helmCharts:
   - name: jellyfin
     releaseName: jellyfin
-    version: 0.1.5
+    version: 0.1.6
     repo: "https://raw.githubusercontent.com/Piwero/helmseum/gh-pages"
     valuesFile: values.yaml
