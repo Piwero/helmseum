@@ -12,13 +12,13 @@ module.exports = {
                 "changelogFile": "CHANGELOG.md"
             }
         ],
-        // [
-        //     "@semantic-release/exec",
-        //     {
-        //         "prepareCmd": "helm-docs",
-        //         "publishCmd": "cr package . && cr upload -o $(GITHUB_REPOSITORY_OWNER) -r $(GITHUB_REPOSITORY) -c $(git rev-parse HEAD) --release-notes-file CHANGELOG.md --push --packages-with-index --skip-existing"
-        //     }
-        // ],
+        [
+            "@semantic-release/exec",
+            {
+                "prepareCmd": "helm-docs",
+                "publishCmd": "cr package . && cr upload -o $(GITHUB_REPOSITORY_OWNER) -r $(GITHUB_REPOSITORY) -c $(git rev-parse HEAD) --release-notes-file CHANGELOG.md --push --packages-with-index --skip-existing"
+            }
+        ],
         [
             "semantic-release-helm3",
             {
