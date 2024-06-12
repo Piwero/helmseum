@@ -11,7 +11,7 @@ metadata:
   name: {{ .name | default (printf "%s-ingressroute" $.Chart.Name) }}
 {{- include "metadata" $ | indent 2 }}
 spec:
-    entrypoints:
+    entryPoints:
 {{ toYaml .entryPoints | indent 6 }}
     routes:
 {{- range .routes }}
