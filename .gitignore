@@ -4,3 +4,4 @@
 **/charts/*.tgz
 node_modules/
 *.env
+!*.example.env
