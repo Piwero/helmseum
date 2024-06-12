@@ -1,3 +1,11 @@
+## [1.2.2](https://github.com/Piwero/helmseum/compare/jellyfin-v1.2.1...jellyfin-v1.2.2) (2024-06-12)
+
+
+### Bug Fixes
+
+* **jellyfin:** Create namespace with kustomize ([bb05564](https://github.com/Piwero/helmseum/commit/bb05564680565ca688d6876935fa0757f9b6a86a))
+* **jellyfin:** Rename entryPoints ([e484797](https://github.com/Piwero/helmseum/commit/e48479736bb1caded58d243e1e5036df44a2ba0e))
+
 ## [1.2.1](https://github.com/Piwero/helmseum/compare/jellyfin-v1.2.0...jellyfin-v1.2.1) (2024-06-11)
 
 
