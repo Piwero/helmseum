@@ -1,0 +1,17 @@
+{{- range .Values.pvcs }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .name }}
+  namespace: {{ $.Values.namespace }}
+spec:
+  storageClassName: {{ .storageClassName }}
+  volumeName: {{ .volumeName }}
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: {{ .storage }}
+---
+{{- end }}

@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: mediaserver
+
+#helmGlobals:
+#  chartHome: ../../charts # To test locally
+helmCharts:
+  - name: mediaserver
+    releaseName: mediaserver
+    version: 0.0.1
+    repo: https://piwero.github.io/helmseum
+    valuesFile: values.yaml

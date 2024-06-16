@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    tunnel: gluetun
+  name: {{ include "mediaserver.fullname" . }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: mediaserver
+  template:
+    metadata:
+      labels:
+        app: mediaserver
+    spec:
+{{- if .Values.nodeSelector }}
+      nodeSelector:
+        {{ .Values.nodeSelector | toYaml | nindent 10 }}
+
+ {{- end }}
+      imagePullSecrets:
+      - name: {{ .Values.imagePullSecret }}
+      containers:
+{{- range .Values.containers }}
+      - name: {{ .name }}
+        image: {{ .image }}
+        imagePullPolicy: {{ .imagePullPolicy | default "IfNotPresent" }}
+{{- if .securityContext }}
+        securityContext:
+          {{ .securityContext | toYaml | nindent 10 }}
+{{- end }}
+{{- if .envFrom }}
+        envFrom:
+          {{ .envFrom | toYaml | nindent 10 }}
+
+{{- end }}
+        env:
+        - name: OPENVPN_USER
+          valueFrom:
+            secretKeyRef:
+              name: openvpn-user-secret
+              key: OPENVPN_USER_SECRETl
+        - name: docker-email
+          valueFrom:
+            secretKeyRef:
+              name: secret-docker
+              key: docker-email
+        - name: docker-username
+          valueFrom:
+            secretKeyRef:
+              name: secret-docker
+              key: docker-username
+        - name: docker-password
+          valueFrom:
+            secretKeyRef:
+              name: secret-docker
+              key: docker-password
+        - name: docker-server
+          valueFrom:
+            secretKeyRef:
+              name: secret-docker
+              key: docker-server
+
+
+{{- end }}
+{{- if .ports }}
+        ports:
+{{- range .ports }}
+        - containerPort: {{ .containerPort }}
+          name: {{ .name }}
+{{- if .protocol }}
+          protocol: {{ .protocol }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- if .volumeMounts }}
+        volumeMounts:
+{{- range .volumeMounts }}
+        - mountPath: {{ .mountPath }}
+          name: {{ .name }}
+{{- end }}
+{{- end }}
+      volumes:
+{{- range .Values.volumes }}
+        - name: {{ .name }}
+{{- if .emptyDir }}
+          emptyDir: {}
+{{- end }}
+{{- if .persistentVolumeClaim }}
+          persistentVolumeClaim:
+            claimName: {{ .persistentVolumeClaim }}
+{{- end }}
+{{- end }}

@@ -1,0 +1,22 @@
+{{- range .Values.ingressRoutes }}
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .name }}
+  namespace: {{ $.Values.namespace }}
+  annotations: {}
+spec:
+  entryPoints:
+    - websecure
+    - web
+  routes:
+    - match: Host(`{{ .host }}`)
+      kind: Rule
+      middlewares: [ ]
+      services:
+        - kind: Service
+          name: {{ .serviceName }}
+          namespace: {{ $.Values.namespace }}
+          port: 80
+---
+{{- end }}

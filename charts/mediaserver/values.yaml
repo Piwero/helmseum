@@ -1,0 +1,315 @@
+namespace: mediaserver
+nodeSelector:
+  device: raspi
+
+fullnameOverride: "mediaserver"
+
+configmap:
+  enabled: true
+  values:
+    name: mediaserver-env-values
+    data:
+      TZ: "Europe/London"
+      PUID: "1000"
+      PGID: "1000"
+      VPN_SERVICE_PROVIDER: "mullvad"
+      VPN_TYPE: "openvpn"
+      SERVER_CITIES: "amsterdam"
+      UMASK_SET: "022"
+      WEBUI_PORT: "8080"
+
+secrets:
+  - name: secret-docker
+    enabled: true
+    type: Opaque
+    data:
+      docker-email: ${DOCKER_REGISTRY_EMAIL}
+      docker-username: ${DOCKER_REGISTRY_USERNAME}
+      docker-password: ${DOCKER_REGISTRY_PASSWORD}
+      docker-server: ${DOCKER_REGISTRY_SERVER}
+
+## Deployment
+replicas: 1
+imagePullSecret: secret-docker
+
+containers:
+  - name: vpn-check-location-container
+    image: registry.piwero.com/vpn-check-location:2.2
+
+  - name: gluetun-container
+    image: qmcgaw/gluetun:v3.38
+    securityContext:
+      capabilities:
+        add: [ "NET_ADMIN" ]
+    envFrom:
+      - configMapRef:
+          name: mediaserver-env-values
+    env:
+      - name: OPENVPN_USER
+        secretName: openvpn-user-secret
+        secretKey: ${OPENVPN_USER}
+
+  - name: radarr
+    image: lscr.io/linuxserver/radarr:5.6.0-nightly
+    envFrom:
+      - configMapRef:
+          name: mediaserver-env-values
+    ports:
+      - containerPort: 7878
+        name: api
+    volumeMounts:
+      - mountPath: /config
+        name: radarr-volume-config
+      - mountPath: /data
+        name: data
+
+  - name: sonarr
+    image: linuxserver/sonarr:4.0.4
+    envFrom:
+      - configMapRef:
+          name: mediaserver-env-values
+    ports:
+      - containerPort: 8989
+        name: api
+    volumeMounts:
+      - mountPath: /config
+        name: sonarr-volume-config
+      - mountPath: /data
+        name: data
+
+  - name: prowlarr
+    image: linuxserver/prowlarr:nightly
+    envFrom:
+      - configMapRef:
+          name: mediaserver-env-values
+    ports:
+      - containerPort: 9696
+        name: api
+    volumeMounts:
+      - mountPath: /config
+        name: prowlarr-volume-config
+
+  - name: qbittorrent
+    image: linuxserver/qbittorrent:4.6.4-libtorrentv1
+    envFrom:
+      - configMapRef:
+          name: mediaserver-env-values
+    securityContext:
+      runAsUser: 0
+    ports:
+      - containerPort: 8080
+        name: webui
+      - containerPort: 6881
+        name: bittorrent
+        protocol: UDP
+    volumeMounts:
+      - mountPath: /config
+        name: qbittorrent-config
+      - mountPath: /data
+        name: data
+
+  - name: readarr
+    image: linuxserver/readarr:0.3.26-develop
+    envFrom:
+      - configMapRef:
+          name: mediaserver-env-values
+    ports:
+      - containerPort: 8787
+        name: api
+    volumeMounts:
+      - mountPath: /config
+        name: readarr-volume-config
+      - mountPath: /data
+        name: data
+
+volumes:
+  - name: log-volume
+    emptyDir: { }
+  - name: radarr-volume-config
+    persistentVolumeClaim: radarr-pvc-config
+  - name: sonarr-volume-config
+    persistentVolumeClaim: sonarr-pvc-config
+  - name: prowlarr-volume-config
+    persistentVolumeClaim: prowlarr-pvc-config
+  - name: qbittorrent-config
+    persistentVolumeClaim: qbittorrent-pvc-config
+  - name: readarr-volume-config
+    persistentVolumeClaim: readarr-pvc-config
+  - name: data
+    persistentVolumeClaim: data-pvc
+
+radarrPvcConfig: radarr-pvc-config
+sonarrPvcConfig: sonarr-pvc-config
+prowlarrPvcConfig: prowlarr-pvc-config
+qbittorrentPvcConfig: qbittorrent-pvc-config
+readarrPvcConfig: readarr-pvc-config
+dataPvc: data-pvc
+
+ingressRoutes:
+  - name: radarr-ingress-route
+    host: radarr.piwero.com
+    serviceName: radarr-service
+  - name: sonarr-ingress-route
+    host: sonarr.piwero.com
+    serviceName: sonarr-service
+  - name: prowlarr-ingress-route
+    host: prowlarr.piwero.com
+    serviceName: prowlarr-service
+  - name: qbittorrent-ingress-route
+    host: qbittorrent.piwero.com
+    serviceName: qbittorrent-service
+  - name: readarr-ingress-route
+    host: readarr.piwero.com
+    serviceName: readarr-service
+
+configMap:
+  name: mediaserver-env-values
+
+  data:
+    TZ: "Europe/London"
+    PUID: "1000"
+    PGID: "1000"
+    VPN_SERVICE_PROVIDER: "mullvad"
+    VPN_TYPE: "openvpn"
+    SERVER_CITIES: "amsterdam"
+    UMASK_SET: "022"
+    WEBUI_PORT: "8080"
+
+pvs:
+  - name: radarr-pv-nfs-config
+    storageClassName: ""
+    capacity: 1Gi
+    accessModes: ReadWriteMany
+    persistentVolumeReclaimPolicy: Retain
+    nfsPath: /volume1/homelab-kubedata/mediaserver/radarr
+    nfsServer: ${NAS_IP}
+    readOnly: false
+
+  - name: sonarr-pv-nfs-config
+    storageClassName: ""
+    capacity: 1Gi
+    accessModes: ReadWriteMany
+    persistentVolumeReclaimPolicy: Retain
+    nfsPath: /volume1/homelab-kubedata/mediaserver/sonarr
+    nfsServer: ${NAS_IP}
+    readOnly: false
+
+  - name: prowlarr-pv-nfs-config
+    storageClassName: ""
+    capacity: 1Gi
+    accessModes: ReadWriteMany
+    persistentVolumeReclaimPolicy: Retain
+    nfsPath: /volume1/homelab-kubedata/mediaserver/prowlarr
+    nfsServer: ${NAS_IP}
+    readOnly: false
+
+  - name: qbittorrent-pv-nfs-config
+    storageClassName: ""
+    capacity: 1Gi
+    accessModes: ReadWriteMany
+    persistentVolumeReclaimPolicy: Retain
+    nfsPath: /volume1/homelab-kubedata/mediaserver/qbittorrent
+    nfsServer: ${NAS_IP}
+    readOnly: false
+
+  - name: readarr-pv-nfs-config
+    storageClassName: ""
+    capacity: 1Gi
+    accessModes: ReadWriteMany
+    persistentVolumeReclaimPolicy: Retain
+    nfsPath: /volume1/homelab-kubedata/mediaserver/readarr
+    nfsServer: ${NAS_IP}
+    readOnly: false
+
+  - name: data-pv
+    storageClassName: ""
+    capacity: 2Ti
+    accessModes: ReadWriteMany
+    persistentVolumeReclaimPolicy: Retain
+    nfsPath: /volume1/homelab-kubedata/mediaserver/data
+    nfsServer: ${NAS_IP}
+    readOnly: false
+
+pvcs:
+  - name: radarr-pvc-config
+    volumeName: radarr-pv-nfs-config
+    storageClassName: ""
+    accessModes: ReadWriteMany
+    storage: 1Gi
+  - name: sonarr-pvc-config
+    volumeName: sonarr-pv-nfs-config
+    storageClassName: ""
+    accessModes: ReadWriteMany
+    storage: 1Gi
+  - name: prowlarr-pvc-config
+    volumeName: prowlarr-pv-nfs-config
+    storageClassName: ""
+    accessModes: ReadWriteMany
+    storage: 1Gi
+  - name: qbittorrent-pvc-config
+    volumeName: qbittorrent-pv-nfs-config
+    storageClassName: ""
+    accessModes: ReadWriteMany
+    storage: 1Gi
+  - name: readarr-pvc-config
+    volumeName: readarr-pv-nfs-config
+    storageClassName: ""
+    accessModes: ReadWriteMany
+    storage: 1Gi
+  - name: data-pvc
+    volumeName: data-pv
+    storageClassName: ""
+    accessModes: ReadWriteMany
+    storage: 2Ti
+
+
+svcs:
+  - name: radarr-service
+    selector:
+      app: mediaserver
+    type: ClusterIP
+    ports:
+      name: radarr-port
+      protocol: TCP
+      port: 80
+      targetPort: 7878
+
+  - name: sonarr-service
+    selector:
+      app: mediaserver
+    type: ClusterIP
+    ports:
+      name: sonarr-port
+      protocol: TCP
+      port: 80
+      targetPort: 8989
+
+  - name: prowlarr-service
+    selector:
+      app: mediaserver
+    type: ClusterIP
+    ports:
+      name: prowlarr-port
+      protocol: TCP
+      port: 80
+      targetPort: 9696
+
+  - name: qbittorrent-service
+    selector:
+      app: mediaserver
+    type: ClusterIP
+    ports:
+      name: qbittorrent-port
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+
+  - name: readarr-service
+    selector:
+      app: mediaserver
+    type: ClusterIP
+    ports:
+      name: readarr-port
+      protocol: TCP
+      port: 80
+      targetPort: 8787

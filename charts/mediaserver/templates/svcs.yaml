@@ -1,0 +1,17 @@
+{{- range .Values.svcs }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .name }}
+  namespace: {{ $.Values.namespace }}
+spec:
+  selector:
+    app: {{ .selector.app }}
+  type: {{ .type }}
+  ports:
+    - name: {{ .ports.name }}
+      protocol: {{ .ports.protocol }}
+      port: {{ .ports.port }}
+      targetPort: {{ .ports.targetPort }}
+---
+{{- end }}
