@@ -70,6 +70,16 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-06-16T21:42:38.867356362Z"
+    description: A Helm chart for jellyfin deployment
+    digest: 4f3ac9e9b2491a94b5cd6199fc07a14cce3a7e33e211c4b8474f1eb2881cf40a
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/Piwero/helmseum/releases/download/jellyfin-1.4.0/jellyfin-1.4.0.tgz
+    version: 1.4.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-06-16T21:38:23.781480751Z"
     description: A Helm chart for jellyfin deployment
     digest: fc7826590038fc45ed34c4d7e1f26c6a5b772a29a62a169043d3aa276cd1bee8
@@ -189,4 +199,4 @@ entries:
     urls:
     - test-1-1.1.0.tgz
     version: 1.1.0
-generated: "2024-06-16T21:38:23.781515236Z"
+generated: "2024-06-16T21:42:38.867399543Z"
