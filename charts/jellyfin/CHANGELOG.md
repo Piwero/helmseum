@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.3.0...jellyfin-v1.4.0) (2024-06-16)
+
+
+### Features
+
+* **mediaserver:** Upload mediaserver deployment ([120ef54](https://github.com/Piwero/helmseum/commit/120ef54ca1a7ecd856a841fa10b6dd04add62c69))
+
 # [1.3.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.2.2...jellyfin-v1.3.0) (2024-06-16)
 
 
