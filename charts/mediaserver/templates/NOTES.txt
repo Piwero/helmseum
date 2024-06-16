@@ -1,1 +1,1 @@
-Running {{ .Values.namespace }}
+Running {{ .Values.namespace }} with different apps
