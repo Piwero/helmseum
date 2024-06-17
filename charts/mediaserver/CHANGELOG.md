@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Piwero/helmseum/compare/mediaserver-v1.0.0...mediaserver-v1.0.1) (2024-06-17)
+
+
+### Bug Fixes
+
+* **mediaserver:** Rename chart to mediaserver ([c19c10a](https://github.com/Piwero/helmseum/commit/c19c10a48287f5d86677fa77ddb75bf664252cfc))
+
 # 1.0.0 (2024-06-17)
 
 
