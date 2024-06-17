@@ -161,6 +161,17 @@ entries:
     urls:
     - jellyfin-1.1.0.tgz
     version: 1.1.0
+  mediaserver-chart:
+  - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2024-06-17T06:24:32.942443407Z"
+    description: A Helm chart for Kubernetes
+    digest: 9269f57891267cd31f9091184ebcd035b71918d1a80550770a9903386ba817f6
+    name: mediaserver-chart
+    type: application
+    urls:
+    - https://github.com/Piwero/helmseum/releases/download/mediaserver-chart-1.0.0/mediaserver-chart-1.0.0.tgz
+    version: 1.0.0
   test-1:
   - apiVersion: v2
     appVersion: 0.0.1
@@ -199,4 +210,4 @@ entries:
     urls:
     - test-1-1.1.0.tgz
     version: 1.1.0
-generated: "2024-06-16T21:42:38.867399543Z"
+generated: "2024-06-17T06:24:32.942472541Z"
