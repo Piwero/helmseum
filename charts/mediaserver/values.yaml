@@ -50,7 +50,7 @@ containers:
         secretKey: ${OPENVPN_USER}
 
   - name: radarr
-    image: lscr.io/linuxserver/radarr:5.6.0-nightly
+    image: lscr.io/linuxserver/radarr:5.7.0-nightly
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
@@ -64,7 +64,7 @@ containers:
         name: data
 
   - name: sonarr
-    image: linuxserver/sonarr:4.0.4
+    image: linuxserver/sonarr:4.0.5
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
