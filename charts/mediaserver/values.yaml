@@ -64,7 +64,7 @@ containers:
         name: data
 
   - name: sonarr
-    image: linuxserver/sonarr:4.0.4
+    image: linuxserver/sonarr:4.0.5
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
