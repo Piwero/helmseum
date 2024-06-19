@@ -20,8 +20,6 @@ spec:
         {{ .Values.nodeSelector | toYaml | nindent 10 }}
 
  {{- end }}
-      imagePullSecrets:
-      - name: {{ .Values.imagePullSecret }}
       containers:
 {{- range .Values.containers }}
       - name: {{ .name }}
@@ -31,40 +29,18 @@ spec:
         securityContext:
           {{ .securityContext | toYaml | nindent 10 }}
 {{- end }}
-{{- if .envFrom }}
         envFrom:
-          {{ .envFrom | toYaml | nindent 10 }}
-
-{{- end }}
-        env:
-        - name: OPENVPN_USER
-          valueFrom:
-            secretKeyRef:
+        {{- if .envFrom }}
+                {{ .envFrom | toYaml | nindent 10 }}
+        {{- end }}
+          - secretRef:
+              name: secret-docker
+          - secretRef:
               name: openvpn-user-secret
-              key: OPENVPN_USER_SECRETl
-        - name: docker-email
-          valueFrom:
-            secretKeyRef:
-              name: secret-docker
-              key: docker-email
-        - name: docker-username
-          valueFrom:
-            secretKeyRef:
-              name: secret-docker
-              key: docker-username
-        - name: docker-password
-          valueFrom:
-            secretKeyRef:
-              name: secret-docker
-              key: docker-password
-        - name: docker-server
-          valueFrom:
-            secretKeyRef:
-              name: secret-docker
-              key: docker-server
-
 
 {{- end }}
+
+
 {{- if .ports }}
         ports:
 {{- range .ports }}

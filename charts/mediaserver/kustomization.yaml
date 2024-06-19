@@ -2,11 +2,22 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: mediaserver
 
-#helmGlobals:
-#  chartHome: ../../charts # To test locally
+helmGlobals:
+  chartHome: ../../charts # To test locally
+
 helmCharts:
   - name: mediaserver
     releaseName: mediaserver
     version: 0.0.1
-    repo: https://piwero.github.io/helmseum
+#    repo: https://piwero.github.io/helmseum
     valuesFile: values.yaml
+secretGenerator:
+  - name: secret-docker
+    literals:
+      - docker-email=${DOCKER_REGISTRY_EMAIL}
+      - docker-username=${DOCKER_REGISTRY_USERNAME}
+      - docker-password=${DOCKER_REGISTRY_PASSWORD}
+      - docker-server=${DOCKER_REGISTRY_SERVER}
+  - name: openvpn-user-secret
+    literals:
+      - OPENVPN_USER=${OPENVPN_USER}
