@@ -1,8 +1,7 @@
-{{- if .Values.configmap.enabled -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.configMap.name }}
+  name: mediaserver-env-values
   namespace: {{ .Values.namespace }}
   labels:
     {{- include "mediaserver.labels" . | nindent 4 }}
@@ -10,9 +9,8 @@ data:
     TZ: "Europe/London"
     PUID: "1000"
     PGID: "1000"
-    VPN_SERVICE_PROVIDER: "${VPN_SERVICE_PROVIDER}"
-    VPN_TYPE: "${VPN_TYPE}"
-    SERVER_CITIES: "${SERVER_CITIES}"
+    VPN_SERVICE_PROVIDER: "mullvad"
+    VPN_TYPE: "openvpn"
+    SERVER_CITIES: "amsterdam"
     UMASK_SET: "022"
     WEBUI_PORT: "8080"
-{{- end }}

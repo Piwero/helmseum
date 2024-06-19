@@ -4,20 +4,6 @@ nodeSelector:
 
 fullnameOverride: "mediaserver"
 
-configmap:
-  enabled: true
-  values:
-    name: mediaserver-env-values
-    data:
-      TZ: "Europe/London"
-      PUID: "1000"
-      PGID: "1000"
-      VPN_SERVICE_PROVIDER: "mullvad"
-      VPN_TYPE: "openvpn"
-      SERVER_CITIES: "amsterdam"
-      UMASK_SET: "022"
-      WEBUI_PORT: "8080"
-
 ## Deployment
 replicas: 1
 imagePullSecret: secret-docker
@@ -166,7 +152,7 @@ pvs:
     storageClassName: ""
     capacity: 1Gi
     accessModes: ReadWriteMany
-    persistentVolumeReclaimPolicy: Retain
+    persistentVolumeReclaimPolicy: Delete
     nfsPath: /volume1/homelab-kubedata/mediaserver/radarr
     nfsServer: ${NAS_IP}
     readOnly: false
@@ -175,7 +161,7 @@ pvs:
     storageClassName: ""
     capacity: 1Gi
     accessModes: ReadWriteMany
-    persistentVolumeReclaimPolicy: Retain
+    persistentVolumeReclaimPolicy: Delete
     nfsPath: /volume1/homelab-kubedata/mediaserver/sonarr
     nfsServer: ${NAS_IP}
     readOnly: false
@@ -184,7 +170,7 @@ pvs:
     storageClassName: ""
     capacity: 1Gi
     accessModes: ReadWriteMany
-    persistentVolumeReclaimPolicy: Retain
+    persistentVolumeReclaimPolicy: Delete
     nfsPath: /volume1/homelab-kubedata/mediaserver/prowlarr
     nfsServer: ${NAS_IP}
     readOnly: false
@@ -193,7 +179,7 @@ pvs:
     storageClassName: ""
     capacity: 1Gi
     accessModes: ReadWriteMany
-    persistentVolumeReclaimPolicy: Retain
+    persistentVolumeReclaimPolicy: Delete
     nfsPath: /volume1/homelab-kubedata/mediaserver/qbittorrent
     nfsServer: ${NAS_IP}
     readOnly: false
@@ -202,7 +188,7 @@ pvs:
     storageClassName: ""
     capacity: 1Gi
     accessModes: ReadWriteMany
-    persistentVolumeReclaimPolicy: Retain
+    persistentVolumeReclaimPolicy: Delete
     nfsPath: /volume1/homelab-kubedata/mediaserver/readarr
     nfsServer: ${NAS_IP}
     readOnly: false
@@ -211,7 +197,7 @@ pvs:
     storageClassName: ""
     capacity: 2Ti
     accessModes: ReadWriteMany
-    persistentVolumeReclaimPolicy: Retain
+    persistentVolumeReclaimPolicy: Delete
     nfsPath: /volume1/homelab-kubedata/mediaserver/data
     nfsServer: ${NAS_IP}
     readOnly: false
