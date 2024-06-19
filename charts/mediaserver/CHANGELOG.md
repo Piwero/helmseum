@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/Piwero/helmseum/compare/mediaserver-v1.0.1...mediaserver-v1.0.2) (2024-06-19)
+
+
+### Bug Fixes
+
+* **mediaserver:** Encode secrets in base64 ([ce868c5](https://github.com/Piwero/helmseum/commit/ce868c5898a459d8be220d40c019ae83fccf5f79))
+* **mediaserver:** Inject secrets with inflator kustomize ([3a584db](https://github.com/Piwero/helmseum/commit/3a584db57b8420058e8b5141ebaaa34907a6c7a4))
+
 ## [1.0.1](https://github.com/Piwero/helmseum/compare/mediaserver-v1.0.0...mediaserver-v1.0.1) (2024-06-17)
 
 
