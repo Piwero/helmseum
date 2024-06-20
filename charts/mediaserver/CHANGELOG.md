@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.0.3...mediaserver-v1.1.0) (2024-06-20)
+
+
+### Features
+
+* **mediaserver:** Inject configmap with inflator kustomize ([5016eda](https://github.com/Piwero/helmseum/commit/5016eda5276dc6a090be24085a6d31a46feb9fac))
+
 ## [1.0.3](https://github.com/Piwero/helmseum/compare/mediaserver-v1.0.2...mediaserver-v1.0.3) (2024-06-19)
 
 
