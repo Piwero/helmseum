@@ -13,11 +13,13 @@ helmCharts:
     valuesFile: values.yaml
 secretGenerator:
   - name: secret-docker
+    type: kubernetes.io/dockerconfigjson
     literals:
       - docker-email=${DOCKER_REGISTRY_EMAIL}
       - docker-username=${DOCKER_REGISTRY_USERNAME}
       - docker-password=${DOCKER_REGISTRY_PASSWORD}
       - docker-server=${DOCKER_REGISTRY_SERVER}
+
   - name: openvpn-user-secret
     literals:
       - OPENVPN_USER=${OPENVPN_USER}

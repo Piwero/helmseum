@@ -20,6 +20,8 @@ spec:
         {{ .Values.nodeSelector | toYaml | nindent 10 }}
 
  {{- end }}
+      imagePullSecrets:
+        - name: secret-docker
       containers:
 {{- range .Values.containers }}
       - name: {{ .name }}
@@ -33,8 +35,6 @@ spec:
         {{- if .envFrom }}
                 {{ .envFrom | toYaml | nindent 10 }}
         {{- end }}
-          - secretRef:
-              name: secret-docker
           - secretRef:
               name: openvpn-user-secret
 
