@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Piwero/helmseum/compare/mediaserver-v1.1.0...mediaserver-v1.1.1) (2024-06-20)
+
+
+### Bug Fixes
+
+* **mediaserver:** Use docker private secrets properly ([895e0c4](https://github.com/Piwero/helmseum/commit/895e0c4aab6b3523adcd8a52ce340ad5c1400d90))
+
 # [1.1.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.0.3...mediaserver-v1.1.0) (2024-06-20)
 
 
