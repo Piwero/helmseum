@@ -21,3 +21,10 @@ secretGenerator:
   - name: openvpn-user-secret
     literals:
       - OPENVPN_USER=${OPENVPN_USER}
+configMapGenerator:
+  - name: mediaserver-env-values
+    files:
+      - mediaserver.configmap.env
+
+generatorOptions:
+  disableNameSuffixHash: true
