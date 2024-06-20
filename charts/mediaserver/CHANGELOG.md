@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Piwero/helmseum/compare/mediaserver-v1.0.2...mediaserver-v1.0.3) (2024-06-19)
+
+
+### Bug Fixes
+
+* **mediaserver:** Update configmap with proper values ([b0cfa0f](https://github.com/Piwero/helmseum/commit/b0cfa0fd790e1bd2cfeff28ca95afed379c24694))
+
 ## [1.0.2](https://github.com/Piwero/helmseum/compare/mediaserver-v1.0.1...mediaserver-v1.0.2) (2024-06-19)
 
 
