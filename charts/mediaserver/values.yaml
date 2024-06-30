@@ -81,7 +81,7 @@ containers:
         name: data
 
   - name: readarr
-    image: linuxserver/readarr:0.3.26-develop
+    image: linuxserver/readarr:0.3.29-develop
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
