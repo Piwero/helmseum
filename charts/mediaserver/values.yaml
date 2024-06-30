@@ -22,7 +22,7 @@ containers:
           name: mediaserver-env-values
 
   - name: radarr
-    image: lscr.io/linuxserver/radarr:5.7.0-nightly
+    image: lscr.io/linuxserver/radarr:5.8.1-nightly
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
