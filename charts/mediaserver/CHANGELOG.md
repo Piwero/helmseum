@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/Piwero/helmseum/compare/mediaserver-v1.1.1...mediaserver-v1.1.2) (2024-07-02)
+
+
+### Bug Fixes
+
+* **mediaserver:** Add secret to gluetun ([53fbb8c](https://github.com/Piwero/helmseum/commit/53fbb8c5245af0421e8cf1f4ccef77f4d8bb85b2))
+* **mediaserver:** Remove wrong secret type ([64e9960](https://github.com/Piwero/helmseum/commit/64e99603422768271e050bfb5c5afb06a8823bdd))
+
 ## [1.1.1](https://github.com/Piwero/helmseum/compare/mediaserver-v1.1.0...mediaserver-v1.1.1) (2024-06-20)
 
 
