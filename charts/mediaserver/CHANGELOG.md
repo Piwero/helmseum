@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.1.2...mediaserver-v1.2.0) (2024-07-02)
+
+
+### Features
+
+* **mediaserver:** Create init container checker ([c17856f](https://github.com/Piwero/helmseum/commit/c17856f88da9b2a7f8abdaed5670fba563acfaaf))
+
 ## [1.1.2](https://github.com/Piwero/helmseum/compare/mediaserver-v1.1.1...mediaserver-v1.1.2) (2024-07-02)
 
 
