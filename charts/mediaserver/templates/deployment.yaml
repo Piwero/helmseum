@@ -22,6 +22,16 @@ spec:
  {{- end }}
       imagePullSecrets:
         - name: secret-docker
+
+      initContainers:
+        - name: curl-checker
+          image: curlimages/curl:7.77.0
+          command: [ 'sh', '-c', 'until curl -sS https://api.myip.com; do echo waiting for gluetun; sleep 2; done' ]
+          envFrom:
+            - configMapRef:
+                name: mediaserver-env-values
+            - secretRef:
+                name: openvpn-user-secret
       containers:
 {{- range .Values.containers }}
       - name: {{ .name }}
