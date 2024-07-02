@@ -10,7 +10,7 @@ imagePullSecret: secret-docker
 
 containers:
   - name: vpn-check-location-container
-    image: registry.piwero.com/vpn-check-location:2.2
+    image: registry.piwero.com/vpn-check-location:3.0
 
   - name: gluetun-container
     image: qmcgaw/gluetun:v3.38
@@ -20,6 +20,10 @@ containers:
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
+    env:
+      - name: OPENVPN_USER
+        secretName: openvpn-user-secret
+        secretKey: OPENVPN_USER
 
   - name: radarr
     image: lscr.io/linuxserver/radarr:5.7.0-nightly
