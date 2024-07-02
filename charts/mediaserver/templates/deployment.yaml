@@ -34,49 +34,45 @@ spec:
                 name: openvpn-user-secret
       containers:
 {{- range .Values.containers }}
-        - name: {{ .name }}
-          image: {{ .image }}
-          imagePullPolicy: {{ .imagePullPolicy | default "IfNotPresent" }}
-{{- if .readinessProbe }}
-          readinessProbe:
-          {{ .readinessProbe | toYaml | nindent 10 }}
-{{- end }}
+      - name: {{ .name }}
+        image: {{ .image }}
+        imagePullPolicy: {{ .imagePullPolicy | default "IfNotPresent" }}
 {{- if .securityContext }}
-          securityContext:
+        securityContext:
           {{ .securityContext | toYaml | nindent 10 }}
 {{- end }}
-          envFrom:
+        envFrom:
         {{- if .envFrom }}
                 {{ .envFrom | toYaml | nindent 10 }}
         {{- end }}
-            - secretRef:
-                name: openvpn-user-secret
+          - secretRef:
+              name: openvpn-user-secret
 
 {{- end }}
 
 
 {{- if .ports }}
-          ports:
+        ports:
 {{- range .ports }}
-            - containerPort: {{ .containerPort }}
-              name: {{ .name }}
+        - containerPort: {{ .containerPort }}
+          name: {{ .name }}
 {{- if .protocol }}
-              protocol: {{ .protocol }}
+          protocol: {{ .protocol }}
 {{- end }}
 {{- end }}
 {{- end }}
 {{- if .volumeMounts }}
-          volumeMounts:
+        volumeMounts:
 {{- range .volumeMounts }}
-            - mountPath: {{ .mountPath }}
-              name: {{ .name }}
+        - mountPath: {{ .mountPath }}
+          name: {{ .name }}
 {{- end }}
 {{- end }}
       volumes:
 {{- range .Values.volumes }}
         - name: {{ .name }}
 {{- if .emptyDir }}
-          emptyDir: { }
+          emptyDir: {}
 {{- end }}
 {{- if .persistentVolumeClaim }}
           persistentVolumeClaim:
