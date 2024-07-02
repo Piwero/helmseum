@@ -14,6 +14,12 @@ containers:
 
   - name: gluetun-container
     image: qmcgaw/gluetun:v3.38
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 5
+      periodSeconds: 5
     securityContext:
       capabilities:
         add: [ "NET_ADMIN" ]
