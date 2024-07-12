@@ -35,8 +35,6 @@ spec:
         {{- if .envFrom }}
                 {{ .envFrom | toYaml | nindent 10 }}
         {{- end }}
-          - secretRef:
-              name: openvpn-user-secret
 
 {{- end }}
 
