@@ -17,9 +17,7 @@ spec:
     spec:
 {{- if .Values.nodeSelector }}
       nodeSelector:
-        {{ .Values.nodeSelector | toYaml | nindent 10 }}
-
- {{- end }}
+        {{ .Values.nodeSelector | toYaml | nindent 10 }}{{- end }}
       imagePullSecrets:
         - name: secret-docker
       containers:
@@ -29,15 +27,10 @@ spec:
         imagePullPolicy: {{ .imagePullPolicy | default "IfNotPresent" }}
 {{- if .securityContext }}
         securityContext:
-          {{ .securityContext | toYaml | nindent 10 }}
-{{- end }}
+          {{ .securityContext | toYaml | nindent 10 }}{{- end }}
         envFrom:
         {{- if .envFrom }}
-                {{ .envFrom | toYaml | nindent 10 }}
-        {{- end }}
-
-{{- end }}
-
+                {{ .envFrom | toYaml | nindent 10 }}{{- end }}
 
 {{- if .ports }}
         ports:
@@ -45,8 +38,7 @@ spec:
         - containerPort: {{ .containerPort }}
           name: {{ .name }}
 {{- if .protocol }}
-          protocol: {{ .protocol }}
-{{- end }}
+          protocol: {{ .protocol }}{{- end }}
 {{- end }}
 {{- end }}
 {{- if .volumeMounts }}
@@ -54,6 +46,7 @@ spec:
 {{- range .volumeMounts }}
         - mountPath: {{ .mountPath }}
           name: {{ .name }}
+{{- end }}
 {{- end }}
 {{- end }}
       volumes:
