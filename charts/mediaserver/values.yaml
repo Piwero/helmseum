@@ -10,7 +10,7 @@ imagePullSecret: secret-docker
 
 containers:
   - name: vpn-check-location-container
-    image: registry.piwero.com/vpn-check-location:3.0
+    image: registry.XXX.com/vpn-check-location:3.0
 
   - name: gluetun-container
     image: qmcgaw/gluetun:v3.38
@@ -123,19 +123,19 @@ dataPvc: data-pvc
 
 ingressRoutes:
   - name: radarr-ingress-route
-    host: radarr.piwero.com
+    host: radarr.xxx.com
     serviceName: radarr-service
   - name: sonarr-ingress-route
-    host: sonarr.piwero.com
+    host: sonarr.xxx.com
     serviceName: sonarr-service
   - name: prowlarr-ingress-route
-    host: prowlarr.piwero.com
+    host: prowlarr.xxx.com
     serviceName: prowlarr-service
   - name: qbittorrent-ingress-route
-    host: qbittorrent.piwero.com
+    host: qbittorrent.xxx.com
     serviceName: qbittorrent-service
   - name: readarr-ingress-route
-    host: readarr.piwero.com
+    host: readarr.xxx.com
     serviceName: readarr-service
 
 configMap:
@@ -147,7 +147,7 @@ pvs:
     capacity: 1Gi
     accessModes: ReadWriteMany
     persistentVolumeReclaimPolicy: Delete
-    nfsPath: /volume1/homelab-kubedata/mediaserver/radarr
+    nfsPath: ${SYNOLOGY_PATH_CONFIGS}/radarr
     nfsServer: ${NAS_IP}
     readOnly: false
 
@@ -156,7 +156,7 @@ pvs:
     capacity: 1Gi
     accessModes: ReadWriteMany
     persistentVolumeReclaimPolicy: Delete
-    nfsPath: /volume1/homelab-kubedata/mediaserver/sonarr
+    nfsPath: ${SYNOLOGY_PATH_CONFIGS}/sonarr
     nfsServer: ${NAS_IP}
     readOnly: false
 
@@ -165,7 +165,7 @@ pvs:
     capacity: 1Gi
     accessModes: ReadWriteMany
     persistentVolumeReclaimPolicy: Delete
-    nfsPath: /volume1/homelab-kubedata/mediaserver/prowlarr
+    nfsPath: ${SYNOLOGY_PATH_CONFIGS}/prowlarr
     nfsServer: ${NAS_IP}
     readOnly: false
 
@@ -174,7 +174,7 @@ pvs:
     capacity: 1Gi
     accessModes: ReadWriteMany
     persistentVolumeReclaimPolicy: Delete
-    nfsPath: /volume1/homelab-kubedata/mediaserver/qbittorrent
+    nfsPath: ${SYNOLOGY_PATH_CONFIGS}/qbittorrent
     nfsServer: ${NAS_IP}
     readOnly: false
 
@@ -183,7 +183,7 @@ pvs:
     capacity: 1Gi
     accessModes: ReadWriteMany
     persistentVolumeReclaimPolicy: Delete
-    nfsPath: /volume1/homelab-kubedata/mediaserver/readarr
+    nfsPath: ${SYNOLOGY_PATH_CONFIGS}/readarr
     nfsServer: ${NAS_IP}
     readOnly: false
 
@@ -192,7 +192,7 @@ pvs:
     capacity: 2Ti
     accessModes: ReadWriteMany
     persistentVolumeReclaimPolicy: Delete
-    nfsPath: /volume1/homelab-kubedata/mediaserver/data
+    nfsPath: ${SYNOLOGY_PATH_CONFIGS}/data
     nfsServer: ${NAS_IP}
     readOnly: false
 
