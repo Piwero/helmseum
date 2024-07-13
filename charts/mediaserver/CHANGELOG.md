@@ -1,3 +1,16 @@
+# [1.3.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.2.0...mediaserver-v1.3.0) (2024-07-12)
+
+
+### Features
+
+* **mediaserver:** Remove CM from values ([d897c65](https://github.com/Piwero/helmseum/commit/d897c65a522cb780378c33845141791a06ade8cf))
+
+
+### Reverts
+
+* **mediaserver:** Remove unneeded env ([2c239a3](https://github.com/Piwero/helmseum/commit/2c239a339bb074764a8a51c9bc51fbca7fd4691d))
+* **mediaserver:** Remove unneeded init container ([301bf71](https://github.com/Piwero/helmseum/commit/301bf712960a88b0dd03c916d1e09deb93f87882))
+
 # [1.2.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.1.2...mediaserver-v1.2.0) (2024-07-02)
 
 
