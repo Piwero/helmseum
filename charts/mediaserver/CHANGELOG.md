@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Piwero/helmseum/compare/mediaserver-v1.3.0...mediaserver-v1.3.1) (2024-07-13)
+
+
+### Bug Fixes
+
+* **mediaserver:** Standarise data ([03438e4](https://github.com/Piwero/helmseum/commit/03438e41a5160c19eadb73e0d625460429790c21))
+
 # [1.3.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.2.0...mediaserver-v1.3.0) (2024-07-12)
 
 
