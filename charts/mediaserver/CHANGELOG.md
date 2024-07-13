@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.3.1...mediaserver-v1.4.0) (2024-07-13)
+
+
+### Bug Fixes
+
+* **mediaserver:** Fix volumemounts range from containers ([3fa6f29](https://github.com/Piwero/helmseum/commit/3fa6f29e17b9306b6d3592f9fb3a243ce4f2bd98))
+
+
+### Features
+
+* **mediaserver:** Remove CM that are injected ([32097c9](https://github.com/Piwero/helmseum/commit/32097c9b7ae9f4fd6123c9cf11040a44994fe2e3))
+
 ## [1.3.1](https://github.com/Piwero/helmseum/compare/mediaserver-v1.3.0...mediaserver-v1.3.1) (2024-07-13)
 
 
