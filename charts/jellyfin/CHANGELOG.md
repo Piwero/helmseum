@@ -1,3 +1,32 @@
+# [1.5.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.4.0...jellyfin-v1.5.0) (2024-12-26)
+
+
+### Bug Fixes
+
+* **mediaserver:** Add secret to gluetun ([53fbb8c](https://github.com/Piwero/helmseum/commit/53fbb8c5245af0421e8cf1f4ccef77f4d8bb85b2))
+* **mediaserver:** Encode secrets in base64 ([ce868c5](https://github.com/Piwero/helmseum/commit/ce868c5898a459d8be220d40c019ae83fccf5f79))
+* **mediaserver:** Fix volumemounts range from containers ([3fa6f29](https://github.com/Piwero/helmseum/commit/3fa6f29e17b9306b6d3592f9fb3a243ce4f2bd98))
+* **mediaserver:** Inject secrets with inflator kustomize ([3a584db](https://github.com/Piwero/helmseum/commit/3a584db57b8420058e8b5141ebaaa34907a6c7a4))
+* **mediaserver:** Remove wrong secret type ([64e9960](https://github.com/Piwero/helmseum/commit/64e99603422768271e050bfb5c5afb06a8823bdd))
+* **mediaserver:** Rename chart to mediaserver ([c19c10a](https://github.com/Piwero/helmseum/commit/c19c10a48287f5d86677fa77ddb75bf664252cfc))
+* **mediaserver:** Standarise data ([03438e4](https://github.com/Piwero/helmseum/commit/03438e41a5160c19eadb73e0d625460429790c21))
+* **mediaserver:** Update configmap with proper values ([b0cfa0f](https://github.com/Piwero/helmseum/commit/b0cfa0fd790e1bd2cfeff28ca95afed379c24694))
+* **mediaserver:** Use docker private secrets properly ([895e0c4](https://github.com/Piwero/helmseum/commit/895e0c4aab6b3523adcd8a52ce340ad5c1400d90))
+
+
+### Features
+
+* **mediaserver:** Create init container checker ([c17856f](https://github.com/Piwero/helmseum/commit/c17856f88da9b2a7f8abdaed5670fba563acfaaf))
+* **mediaserver:** Inject configmap with inflator kustomize ([5016eda](https://github.com/Piwero/helmseum/commit/5016eda5276dc6a090be24085a6d31a46feb9fac))
+* **mediaserver:** Remove CM from values ([d897c65](https://github.com/Piwero/helmseum/commit/d897c65a522cb780378c33845141791a06ade8cf))
+* **mediaserver:** Remove CM that are injected ([32097c9](https://github.com/Piwero/helmseum/commit/32097c9b7ae9f4fd6123c9cf11040a44994fe2e3))
+
+
+### Reverts
+
+* **mediaserver:** Remove unneeded env ([2c239a3](https://github.com/Piwero/helmseum/commit/2c239a339bb074764a8a51c9bc51fbca7fd4691d))
+* **mediaserver:** Remove unneeded init container ([301bf71](https://github.com/Piwero/helmseum/commit/301bf712960a88b0dd03c916d1e09deb93f87882))
+
 # [1.4.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.3.0...jellyfin-v1.4.0) (2024-06-16)
 
 
