@@ -10,7 +10,7 @@ imagePullSecret: secret-docker
 
 containers:
   - name: vpn-check-location-container
-    image: registry.XXX.com/vpn-check-location:3.0
+    image: registry.XXX.com/vpn-check-location:3.1
 
   - name: gluetun-container
     image: qmcgaw/gluetun:v3.38
