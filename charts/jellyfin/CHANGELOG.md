@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/Piwero/helmseum/compare/jellyfin-v1.5.0...jellyfin-v1.5.1) (2025-01-30)
+
+
+### Bug Fixes
+
+* **jellyfin:** Remove hardcoded value ([7e488c4](https://github.com/Piwero/helmseum/commit/7e488c441f68c2c8ab6274a15286552ef903fec7))
+
 # [1.5.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.4.0...jellyfin-v1.5.0) (2024-12-26)
 
 
