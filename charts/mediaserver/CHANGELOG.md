@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.4.0...mediaserver-v1.5.0) (2025-01-31)
+
+
+### Bug Fixes
+
+* **jellyfin:** Remove hardcoded value ([7e488c4](https://github.com/Piwero/helmseum/commit/7e488c441f68c2c8ab6274a15286552ef903fec7))
+
+
+### Features
+
+* **mediaserver:** Add lifecycle ([36597ed](https://github.com/Piwero/helmseum/commit/36597edd97f8bb613d9fc293c30fb2395831e8b2))
+
 # [1.4.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.3.1...mediaserver-v1.4.0) (2024-07-13)
 
 
