@@ -17,6 +17,7 @@ containers:
     securityContext:
       capabilities:
         add: [ "NET_ADMIN" ]
+        privileged: true
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
@@ -35,6 +36,9 @@ containers:
       - name: OPENVPN_USER
         secretName: openvpn-user-secret
         secretKey: OPENVPN_USER
+    ports:
+      - containerPort: 8888
+      - containerPort: 8388
 
   - name: radarr
     image: lscr.io/linuxserver/radarr:5.7.0-nightly
