@@ -18,8 +18,8 @@ secretGenerator:
       - .dockerconfigjson=dockerconfig.json
   - name: wireguard-secrets
     literals:
-      - WIREGUARD_PRIVATE_KEY="2JH2l5eZ7dUZHVgm4/43dsDk7A2zvQOarscE2V7+mkg="
-      - WIREGUARD_PRESHARED_KEY="ykS9WcxVpuuDThd52o5BoS/SVh2zOQc71o8W1V/Fk3g="
+      - WIREGUARD_PRIVATE_KEY=""
+      - WIREGUARD_PRESHARED_KEY=""
 configMapGenerator:
   - name: mediaserver-env-values
     literals:
