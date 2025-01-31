@@ -31,7 +31,10 @@ spec:
         envFrom:
         {{- if .envFrom }}
                 {{ .envFrom | toYaml | nindent 10 }}{{- end }}
-
+{{- if .lifecycle }}
+        lifecycle:
+          {{ .lifecycle | toYaml | nindent 10 }}{{- end }}    
+            
 {{- if .ports }}
         ports:
 {{- range .ports }}

@@ -7,30 +7,29 @@ helmGlobals:
 helmCharts:
   - name: mediaserver
     releaseName: mediaserver
-    version: 1.3.1
-#    repo: https://piwero.github.io/helmseum
-    valuesFile: values.yaml
+    # version: 1.4.0
+    # repo: https://piwero.github.io/helmseum
+    valuesFile: values-test.yaml
 
 secretGenerator:
   - name: secret-docker
     type: kubernetes.io/dockerconfigjson
     files:
-      - .dockerconfigjson=dockerconfig.json # TBC
-  - name: openvpn-user-secret
+      - .dockerconfigjson=dockerconfig.json
+  - name: wireguard-secrets
     literals:
-      - OPENVPN_USER={{YOUR_MULLVAD_USER}}
+      - WIREGUARD_PRIVATE_KEY="2JH2l5eZ7dUZHVgm4/43dsDk7A2zvQOarscE2V7+mkg="
+      - WIREGUARD_PRESHARED_KEY="ykS9WcxVpuuDThd52o5BoS/SVh2zOQc71o8W1V/Fk3g="
 configMapGenerator:
   - name: mediaserver-env-values
     literals:
-      - TZ="Europe/London"
-      - PUID="1000"
-      - PGID="1000"
-      - VPN_SERVICE_PROVIDER="mullvad"
-      - VPN_TYPE="openvpn"
-      - SERVER_CITIES="amsterdam"
-      - UMASK_SET="022"
-      - WEBUI_PORT="8080"
-      - LOG_LEVEL="debug"
+      - VPN_SERVICE_PROVIDER=airvpn
+      - VPN_TYPE=wireguard
+      - VPN_INTERFACE=eth0
+      - FIREWALL="off"
+      - DOT="off"
+      - WIREGUARD_ADDRESSES=10.141.231.118/32
+      - SERVER_COUNTRIES=Netherlands
 
 generatorOptions:
   disableNameSuffixHash: true
