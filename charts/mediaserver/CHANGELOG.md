@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.5.0...mediaserver-v1.6.0) (2025-01-31)
+
+
+### Features
+
+* **mediaserver:** Add dnsConfig ([61350aa](https://github.com/Piwero/helmseum/commit/61350aad642379c61d4923be6d4622d655bbd954))
+
 # [1.5.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.4.0...mediaserver-v1.5.0) (2025-01-31)
 
 
