@@ -20,6 +20,17 @@ containers:
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
+      - secretRef:
+          name: wireguard-secrets
+    lifecycle:
+      postStart:
+        exec:
+          command:
+            [
+              "/bin/sh",
+              "-c",
+              "(ip rule del table 51820; ip -6 rule del table 51820) || true",
+            ]    
     env:
       - name: OPENVPN_USER
         secretName: openvpn-user-secret
