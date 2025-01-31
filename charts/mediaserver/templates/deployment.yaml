@@ -20,6 +20,9 @@ spec:
         {{ .Values.nodeSelector | toYaml | nindent 10 }}{{- end }}
       imagePullSecrets:
         - name: secret-docker
+{{- if .Values.dnsConfig }}
+      dnsConfig:
+          {{ .Values.dnsConfig | toYaml | nindent 10 }}{{- end }}
       containers:
 {{- range .Values.containers }}
       - name: {{ .name }}
