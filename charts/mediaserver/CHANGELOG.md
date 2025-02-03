@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.6.0...mediaserver-v1.7.0) (2025-02-03)
+
+
+### Features
+
+* **mediaserver:** Allow to pass env variables to containers ([11dc2c0](https://github.com/Piwero/helmseum/commit/11dc2c0ed017ea2b52b3e7dacca4008af3429618))
+
 # [1.6.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.5.0...mediaserver-v1.6.0) (2025-01-31)
 
 
