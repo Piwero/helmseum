@@ -37,7 +37,15 @@ spec:
 {{- if .lifecycle }}
         lifecycle:
           {{ .lifecycle | toYaml | nindent 10 }}{{- end }}    
-            
+
+{{- if .env }}
+        env:
+{{- range .env }}
+        - name: {{ .name }}
+          value: {{ .value }}
+{{- end }}
+{{- end }}   
+
 {{- if .ports }}
         ports:
 {{- range .ports }}
