@@ -1,3 +1,17 @@
+# [1.6.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.5.1...jellyfin-v1.6.0) (2025-02-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @semantic-release/exec to v7 ([3b59ea4](https://github.com/Piwero/helmseum/commit/3b59ea4eae2cd805c60df4f48787e90f0ab9d9e3))
+
+
+### Features
+
+* **mediaserver:** Add dnsConfig ([61350aa](https://github.com/Piwero/helmseum/commit/61350aad642379c61d4923be6d4622d655bbd954))
+* **mediaserver:** Add lifecycle ([36597ed](https://github.com/Piwero/helmseum/commit/36597edd97f8bb613d9fc293c30fb2395831e8b2))
+* **mediaserver:** Allow to pass env variables to containers ([11dc2c0](https://github.com/Piwero/helmseum/commit/11dc2c0ed017ea2b52b3e7dacca4008af3429618))
+
 ## [1.5.1](https://github.com/Piwero/helmseum/compare/jellyfin-v1.5.0...jellyfin-v1.5.1) (2025-01-30)
 
 
