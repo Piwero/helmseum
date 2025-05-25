@@ -1,3 +1,11 @@
+## [1.7.1](https://github.com/Piwero/helmseum/compare/mediaserver-v1.7.0...mediaserver-v1.7.1) (2025-05-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @semantic-release/exec to v7 ([3b59ea4](https://github.com/Piwero/helmseum/commit/3b59ea4eae2cd805c60df4f48787e90f0ab9d9e3))
+* **deps:** update semantic-release monorepo ([32de8af](https://github.com/Piwero/helmseum/commit/32de8afb54cc6eb4b45686d18cc62dce34b24ce4))
+
 # [1.7.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.6.0...mediaserver-v1.7.0) (2025-02-03)
 
 
