@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/Piwero/helmseum/compare/jellyfin-v1.6.0...jellyfin-v1.6.1) (2025-07-09)
+
+
+### Bug Fixes
+
+* **deps:** update semantic-release monorepo ([32de8af](https://github.com/Piwero/helmseum/commit/32de8afb54cc6eb4b45686d18cc62dce34b24ce4))
+
 # [1.6.0](https://github.com/Piwero/helmseum/compare/jellyfin-v1.5.1...jellyfin-v1.6.0) (2025-02-07)
 
 
