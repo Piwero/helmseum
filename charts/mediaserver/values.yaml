@@ -44,7 +44,7 @@ containers:
       - containerPort: 8388
 
   - name: radarr
-    image: lscr.io/linuxserver/radarr:5.25.0-nightly
+    image: lscr.io/linuxserver/radarr:5.27.4-nightly
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
