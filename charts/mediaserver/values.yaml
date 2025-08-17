@@ -16,7 +16,7 @@ containers:
     image: registry.XXX.com/vpn-check-location:3.1
 
   - name: gluetun-container
-    image: qmcgaw/gluetun:v3.38
+    image: qmcgaw/gluetun:v3.40
     securityContext:
       capabilities:
         add: [ "NET_ADMIN" ]
