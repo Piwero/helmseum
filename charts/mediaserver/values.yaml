@@ -84,7 +84,7 @@ containers:
         name: prowlarr-volume-config
 
   - name: qbittorrent
-    image: linuxserver/qbittorrent:5.0.3-libtorrentv1
+    image: linuxserver/qbittorrent:5.1.2-libtorrentv1
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
