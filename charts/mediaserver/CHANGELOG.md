@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/Piwero/helmseum/compare/mediaserver-v1.7.1...mediaserver-v2.0.0) (2025-08-26)
+
+
+### chore
+
+* **mediaserver:** Enhance pod and service configurations with annotations and labels ([98a8f5a](https://github.com/Piwero/helmseum/commit/98a8f5ad2ae41dcb44f247509d5abe24dcf5cb12))
+
+
+### BREAKING CHANGES
+
+* **mediaserver:** Update templates
+
 ## [1.7.1](https://github.com/Piwero/helmseum/compare/mediaserver-v1.7.0...mediaserver-v1.7.1) (2025-05-25)
 
 
