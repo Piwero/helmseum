@@ -203,6 +203,16 @@ entries:
     version: 1.1.0
   mediaserver:
   - apiVersion: v2
+    appVersion: 1.17.1
+    created: "2025-08-26T17:48:37.002761688Z"
+    description: A Helm chart for Kubernetes
+    digest: 3bc79ee5b590fbd9a099530f1c50d62ad2b47d85721779106693c884b3c59b61
+    name: mediaserver
+    type: application
+    urls:
+    - https://github.com/Piwero/helmseum/releases/download/mediaserver-2.0.0/mediaserver-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     appVersion: 1.17.0
     created: "2025-05-25T21:25:37.192186649Z"
     description: A Helm chart for Kubernetes
@@ -391,4 +401,4 @@ entries:
     urls:
     - test-1-1.1.0.tgz
     version: 1.1.0
-generated: "2025-07-09T07:56:48.291321543Z"
+generated: "2025-08-26T17:48:37.002868348Z"
