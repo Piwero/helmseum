@@ -1,19 +1,31 @@
+# Namespace configuration
 namespace: mediaserver
-nodeSelector:
-  device: raspi
+namespaceAnnotations: {}
 
+# Pod scheduling and metadata
+nodeSelector: {}
+affinity: {}
+tolerations: []
+podAnnotations: {}
+
+# Chart naming
 fullnameOverride: "mediaserver"
 
-## Deployment
+# Deployment configuration
 replicas: 1
 imagePullSecret: secret-docker
+
 dnsConfig:
   nameservers:
     - 1.1.1.1
 
+# Container definitions
 containers:
   - name: vpn-check-location-container
     image: registry.XXX.com/vpn-check-location:3.1
+    resources: {}
+    livenessProbe: {}
+    readinessProbe: {}
 
   - name: gluetun-container
     image: qmcgaw/gluetun:v3.38
@@ -42,6 +54,9 @@ containers:
     ports:
       - containerPort: 8888
       - containerPort: 8388
+    resources: {}
+    livenessProbe: {}
+    readinessProbe: {}
 
   - name: radarr
     image: lscr.io/linuxserver/radarr:5.25.0-nightly
@@ -56,6 +71,9 @@ containers:
         name: radarr-volume-config
       - mountPath: /data
         name: data
+    resources: {}
+    livenessProbe: {}
+    readinessProbe: {}
 
   - name: sonarr
     image: linuxserver/sonarr:4.0.5
@@ -247,53 +265,54 @@ pvcs:
     storage: 2Ti
 
 
+# Service definitions for Helm templates
 svcs:
-  - name: radarr-service
-    selector:
-      app: mediaserver
+  - name: radarr
     type: ClusterIP
-    ports:
-      name: radarr-port
-      protocol: TCP
-      port: 80
-      targetPort: 7878
-
-  - name: sonarr-service
     selector:
-      app: mediaserver
-    type: ClusterIP
+      app: radarr
     ports:
-      name: sonarr-port
-      protocol: TCP
-      port: 80
-      targetPort: 8989
-
-  - name: prowlarr-service
+      - name: api
+        protocol: TCP
+        port: 7878
+        targetPort: 7878
+  - name: sonarr
+    type: ClusterIP
     selector:
-      app: mediaserver
-    type: ClusterIP
+      app: sonarr
     ports:
-      name: prowlarr-port
-      protocol: TCP
-      port: 80
-      targetPort: 9696
-
-  - name: qbittorrent-service
+      - name: api
+        protocol: TCP
+        port: 8989
+        targetPort: 8989
+  - name: prowlarr
+    type: ClusterIP
     selector:
-      app: mediaserver
-    type: ClusterIP
+      app: prowlarr
     ports:
-      name: qbittorrent-port
-      protocol: TCP
-      port: 80
-      targetPort: 8080
-
-  - name: readarr-service
+      - name: api
+        protocol: TCP
+        port: 9696
+        targetPort: 9696
+  - name: qbittorrent
+    type: ClusterIP
     selector:
-      app: mediaserver
-    type: ClusterIP
+      app: qbittorrent
     ports:
-      name: readarr-port
-      protocol: TCP
-      port: 80
-      targetPort: 8787
+      - name: webui
+        protocol: TCP
+        port: 8080
+        targetPort: 8080
+      - name: bittorrent
+        protocol: UDP
+        port: 6881
+        targetPort: 6881
+  - name: readarr
+    type: ClusterIP
+    selector:
+      app: readarr
+    ports:
+      - name: api
+        protocol: TCP
+        port: 8787
+        targetPort: 8787

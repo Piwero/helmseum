@@ -1,10 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    tunnel: gluetun
   name: {{ include "mediaserver.fullname" . }}
   namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "mediaserver.labels" . | nindent 4 }}
+  annotations:
+    {{- with .Values.podAnnotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
@@ -14,63 +18,75 @@ spec:
     metadata:
       labels:
         app: mediaserver
+        {{- include "mediaserver.selectorLabels" . | nindent 8 }}
+      annotations:
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     spec:
-{{- if .Values.nodeSelector }}
+      {{- if .Values.nodeSelector }}
       nodeSelector:
-        {{ .Values.nodeSelector | toYaml | nindent 10 }}{{- end }}
+        {{- toYaml .Values.nodeSelector | nindent 8 }}
+      {{- end }}
+      {{- if .Values.affinity }}
+      affinity:
+        {{- toYaml .Values.affinity | nindent 8 }}
+      {{- end }}
+      {{- if .Values.tolerations }}
+      tolerations:
+        {{- toYaml .Values.tolerations | nindent 8 }}
+      {{- end }}
+      {{- if .Values.imagePullSecret }}
       imagePullSecrets:
-        - name: secret-docker
-{{- if .Values.dnsConfig }}
+        - name: {{ .Values.imagePullSecret }}
+      {{- end }}
+      {{- if .Values.dnsConfig }}
       dnsConfig:
-          {{ .Values.dnsConfig | toYaml | nindent 10 }}{{- end }}
+        {{- toYaml .Values.dnsConfig | nindent 8 }}
+      {{- end }}
       containers:
-{{- range .Values.containers }}
-      - name: {{ .name }}
-        image: {{ .image }}
-        imagePullPolicy: {{ .imagePullPolicy | default "IfNotPresent" }}
-{{- if .securityContext }}
-        securityContext:
-          {{ .securityContext | toYaml | nindent 10 }}{{- end }}
-        envFrom:
-        {{- if .envFrom }}
-                {{ .envFrom | toYaml | nindent 10 }}{{- end }}
-{{- if .lifecycle }}
-        lifecycle:
-          {{ .lifecycle | toYaml | nindent 10 }}{{- end }}    
-
-{{- if .env }}
-        env:
-{{- range .env }}
+        {{- range .Values.containers }}
         - name: {{ .name }}
-          value: {{ .value }}
-{{- end }}
-{{- end }}   
-
-{{- if .ports }}
-        ports:
-{{- range .ports }}
-        - containerPort: {{ .containerPort }}
-          name: {{ .name }}
-{{- if .protocol }}
-          protocol: {{ .protocol }}{{- end }}
-{{- end }}
-{{- end }}
-{{- if .volumeMounts }}
-        volumeMounts:
-{{- range .volumeMounts }}
-        - mountPath: {{ .mountPath }}
-          name: {{ .name }}
-{{- end }}
-{{- end }}
-{{- end }}
-      volumes:
-{{- range .Values.volumes }}
-        - name: {{ .name }}
-{{- if .emptyDir }}
-          emptyDir: {}
-{{- end }}
-{{- if .persistentVolumeClaim }}
-          persistentVolumeClaim:
-            claimName: {{ .persistentVolumeClaim }}
-{{- end }}
-{{- end }}
+          image: {{ .image }}
+          imagePullPolicy: {{ .imagePullPolicy | default "IfNotPresent" }}
+          {{- if .securityContext }}
+          securityContext:
+            {{- toYaml .securityContext | nindent 12 }}
+          {{- else }}
+          securityContext:
+            runAsNonRoot: true
+          {{- end }}
+          {{- if .envFrom }}
+          envFrom:
+            {{- toYaml .envFrom | nindent 12 }}
+          {{- end }}
+          {{- if .lifecycle }}
+          lifecycle:
+            {{- toYaml .lifecycle | nindent 12 }}
+          {{- end }}
+          {{- if .env }}
+          env:
+            {{- range .env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
+          {{- end }}
+          {{- if .ports }}
+          ports:
+            {{- range .ports }}
+            - containerPort: {{ .containerPort }}
+            {{- end }}
+          {{- end }}
+          {{- if .resources }}
+          resources:
+            {{- toYaml .resources | nindent 12 }}
+          {{- end }}
+          {{- if .livenessProbe }}
+          livenessProbe:
+            {{- toYaml .livenessProbe | nindent 12 }}
+          {{- end }}
+          {{- if .readinessProbe }}
+          readinessProbe:
+            {{- toYaml .readinessProbe | nindent 12 }}
+          {{- end }}
+        {{- end }}

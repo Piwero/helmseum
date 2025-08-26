@@ -4,14 +4,22 @@ kind: Service
 metadata:
   name: {{ .name }}
   namespace: {{ $.Values.namespace }}
+  labels:
+    {{- include "mediaserver.labels" $ | nindent 4 }}
+  annotations:
+    {{- with .annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   selector:
     app: {{ .selector.app }}
   type: {{ .type }}
   ports:
-    - name: {{ .ports.name }}
-      protocol: {{ .ports.protocol }}
-      port: {{ .ports.port }}
-      targetPort: {{ .ports.targetPort }}
+    {{- range .ports }}
+    - name: {{ .name }}
+      protocol: {{ .protocol }}
+      port: {{ .port }}
+      targetPort: {{ .targetPort }}
+    {{- end }}
 ---
 {{- end }}

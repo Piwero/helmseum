@@ -59,3 +59,10 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/* Pod annotations helper */}}
+{{- define "mediaserver.podAnnotations" -}}
+{{- with .Values.podAnnotations }}
+{{- toYaml . | nindent 4 }}
+{{- end }}
+{{- end }}

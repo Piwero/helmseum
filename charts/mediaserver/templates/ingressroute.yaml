@@ -4,19 +4,36 @@ kind: IngressRoute
 metadata:
   name: {{ .name }}
   namespace: {{ $.Values.namespace }}
-  annotations: {}
+  labels:
+    {{- include "mediaserver.labels" $ | nindent 4 }}
+  annotations:
+    {{- with .annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   entryPoints:
-    - websecure
-    - web
+    {{- range .entryPoints }}
+    - {{ . }}
+    {{- end }}
   routes:
     - match: Host(`{{ .host }}`)
       kind: Rule
-      middlewares: [ ]
+      {{- if .middlewares }}
+      middlewares:
+        {{- range .middlewares }}
+        - name: {{ .name }}
+        {{- end }}
+      {{- else }}
+      middlewares: []
+      {{- end }}
       services:
         - kind: Service
           name: {{ .serviceName }}
           namespace: {{ $.Values.namespace }}
-          port: 80
+          port: {{ .servicePort | default 80 }}
+  {{- if .tls }}
+  tls:
+    {{- toYaml .tls | nindent 4 }}
+  {{- end }}
 ---
 {{- end }}

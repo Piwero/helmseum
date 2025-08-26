@@ -1,4 +1,10 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-    name: {{ .Values.namespace }}
+  name: {{ .Values.namespace }}
+  labels:
+    {{- include "mediaserver.labels" . | nindent 4 }}
+  annotations:
+    {{- with .Values.namespaceAnnotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}

@@ -1,1 +1,45 @@
-Running {{ .Values.namespace }} with different apps
+{{/*
+mediaserver Helm Chart Usage Notes
+*/}}
+
+Thank you for installing the mediaserver chart!
+
+**Namespace:**
+- Resources are deployed in the namespace: `{{ .Values.namespace }}`
+
+**Customizing Deployments:**
+- Configure containers, resources, probes, affinity, tolerations, and more in `values.yaml`.
+- Example:
+  containers:
+    - name: my-app
+      image: my-image:tag
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
+        limits:
+          cpu: "500m"
+          memory: "512Mi"
+      livenessProbe:
+        httpGet:
+          path: /healthz
+          port: 8080
+        initialDelaySeconds: 10
+        periodSeconds: 10
+
+**Services:**
+- Define multiple services and ports in `svcs` section of `values.yaml`.
+
+**IngressRoute:**
+- Configure hosts, entryPoints, middlewares, and TLS in `ingressRoutes` section.
+
+**Storage:**
+- Customize PVCs and PVs with accessModes, storageClass, and NFS options.
+
+**Troubleshooting:**
+- Check resource status: `kubectl -n {{ .Values.namespace }} get all`
+- View logs: `kubectl -n {{ .Values.namespace }} logs <pod>`
+- Dry-run manifests: `helm template .`
+
+For more details, see the README and values.yaml.
+

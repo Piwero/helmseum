@@ -9,7 +9,7 @@ helmCharts:
     releaseName: mediaserver
     # version: 1.4.0
     # repo: https://piwero.github.io/helmseum
-    valuesFile: values-test.yaml
+    valuesFile: values.yaml
 
 secretGenerator:
   - name: secret-docker
