@@ -59,7 +59,7 @@ containers:
     readinessProbe: {}
 
   - name: radarr
-    image: lscr.io/linuxserver/radarr:5.25.0-nightly
+    image: lscr.io/linuxserver/radarr:5.28.1-nightly
     envFrom:
       - configMapRef:
           name: mediaserver-env-values
