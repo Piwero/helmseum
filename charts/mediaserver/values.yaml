@@ -28,7 +28,7 @@ containers:
     readinessProbe: {}
 
   - name: gluetun-container
-    image: qmcgaw/gluetun:v3.38
+    image: qmcgaw/gluetun:v3.40
     securityContext:
       capabilities:
         add: [ "NET_ADMIN" ]
