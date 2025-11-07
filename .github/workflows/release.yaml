@@ -42,7 +42,7 @@ jobs:
           echo "REPOSITORY_OWNER: $REPOSITORY_OWNER"
           echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 20
 
